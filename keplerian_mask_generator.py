@@ -187,15 +187,15 @@ if make_animation == True:
     t_list_r = np.linspace(0,2*np.pi,2000)
     R, t = np.meshgrid(R_list_r, t_list_r) 
     H_u = h_surf(R, source['h0_u'], source['p_u'], source['Rb_u'], source['q_u'])
-    Sux_r = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) + H_u*no[0]
-    Suy_r = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) + H_u*no[1]
+    Sux_r = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) + H_u*no[0] + dDEC
+    Suy_r = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) + H_u*no[1] + dRA
 
     R_list_t = np.linspace(0,Rmax,2000)[1:]
     t_list_t = np.arange(0,2*np.pi,np.pi/4)
     R, t = np.meshgrid(R_list_t, t_list_t) 
     H_u = h_surf(R, source['h0_u'], source['p_u'], source['Rb_u'], source['q_u'])
-    Sux_t = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) + H_u*no[0]
-    Suy_t = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) + H_u*no[1]
+    Sux_t = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) + H_u*no[0] + dDEC
+    Suy_t = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) + H_u*no[1] + dRA
 
     # Make figure
     fig, ax = plt.subplots(1,2, figsize=(8,4), constrained_layout=True)
