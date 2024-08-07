@@ -32,26 +32,26 @@ pip install numpy matplotlib astropy opencv-python
 You need to set several input parameters at the beginning of the script. These parameters control the behavior of the script and the nature of the output. Here is a detailed description of each parameter:
 
 - `pd`:
-   The file path to the directory containing the input data and where the output will be saved.
-   *Example*: '/path/to/parent/directory/'
+   - The file path to the directory containing the input data and where the output will be saved.
+   - *Example*: '/path/to/parent/directory/'
 - `cf`:
-   A factor used to convolve the data. This parameter adjusts the smoothing applied to the data.
-   *Example*: 1.0 (beam size)
+   - A factor used to convolve the data. This parameter adjusts the smoothing applied to the data.
+   - *Example*: 1.0 (beam size)
 - `savefits`:
-   A boolean flag indicating whether the generated mask should be saved as a FITS file.
-   *Values*: True (save the FITS file), False (do not save the FITS file, save as a npy file)
+   - A boolean flag indicating whether the generated mask should be saved as a FITS file.
+   - *Values*: True (save the FITS file), False (do not save the FITS file, save as a npy file)
 - `slice_data`:
-   A boolean flag that determines if the data should be sliced. This is relevant only if savefits is set to False.
-   *Values*: True (slice the data), False (do not slice the data)
+   - A boolean flag that determines if the data should be sliced. This is relevant only if savefits is set to False.
+   - *Values*: True (slice the data), False (do not slice the data)
 - `same_upperlower`:
-   A boolean flag indicating whether the same parameters should be used for both the upper and lower surfaces of the disk.
-   *Values*: True (use the same parameters for both surfaces), False (use different parameters for each surface)
+   - A boolean flag indicating whether the same parameters should be used for both the upper and lower surfaces of the disk.
+   - *Values*: True (use the same parameters for both surfaces), False (use different parameters for each surface)
 - `make_animation`:
-   A boolean flag indicating whether an animation of the mask should be created. This is relevant only if savefits is set to False.
-   *Values*: True (create an animation), False (do not create an animation)
+   - A boolean flag indicating whether an animation of the mask should be created. This is relevant only if savefits is set to False.
+   - *Values*: True (create an animation), False (do not create an animation)
 - `animation_velocityrange`:
-   The velocity range for the animation, specified as a maximum value in km/s.
-   *Example*: 3 (create an animation for velocities from -3 km/s to 3 km/s)
+   - The velocity range for the animation, specified as a maximum value in km/s.
+   - *Example*: 3 (create an animation for velocities from -3 km/s to 3 km/s)
 
 ## Disk Model
 The source dictionary contains the following parameters:
@@ -75,10 +75,10 @@ $$H = h_0 \left(\frac{r}{100\text{au}}\right)^p
 \exp\left[-\left(\frac{r}{R_b}\right)^q\right]$$
 
 where:
-- $h_0$ is a scaling factor for the height. (`['h0_u']`, `['h0_l']`)
+- $h_0$ is a scaling factor for the height. (Dictionary Key: `['h0_u']`, `['h0_l']`)
 - $r$ is the radial distance from the center of the disk.
-- $p$ and $q$ are power-law exponents. (`['p_u']`, `['p_l']`)
-- $R_b$ is a characteristic radius beyond which the height drops off　exponentially. (`['Rb_u']`, `['Rb_l']`)
+- $p$ and $q$ are power-law exponents. (Dictionary Key: `['p_u']`, `['p_l']`)
+- $R_b$ is a characteristic radius beyond which the height drops off　exponentially. (Dictionary Key: `['Rb_u']`, `['Rb_l']`)
 
 ### Line Widths
 The profile of the line width (Doppler parameter) is modeled using the following equation:
@@ -87,10 +87,10 @@ $$\Delta V = L_{0} \left(\frac{r}{100\text{au}}\right)^p
 \left(\frac{z}{100\text{au}}\right)^q $$
 
 where:
-- $L_{0}$ is a scaling factor for the line width. (`['L0']`)
+- $L_{0}$ is a scaling factor for the line width. (Dictionary Key: `['L0']`)
 - $r$ is the radial distance from the center of the disk.
 - $z$ is the vertical distance from the midplane of the disk.
-- $p$ and $q$ are power-law exponents. (`['p']`, `['q']`)
+- $p$ and $q$ are power-law exponents. (Dictionary Key: `['p']`, `['q']`)
 
 ## Output
 - If `savefits` is True, the masks will be saved as a FITS file.
