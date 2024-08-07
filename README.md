@@ -58,13 +58,13 @@ The source dictionary contains the following parameters:
 #### Basic Information
 - `['name']`: Source name.
 - `['fits']`: Name of the FITS file.
-- `['dpc']`: Distance to the source in pc.
+- `['dpc']`: Distance to the source (pc).
 - `['Mstar']`: Mass of the central star in solar masses.
-- `['vsys']`: Systemic velocity of the disk in km/s.
-- `['incl']`: Inclination angle of the disk in degrees.
-- `['pa']`: Position angle of the disk in degrees.
+- `['vsys']`: Systemic velocity of the disk (km/s).
+- `['incl']`: Inclination angle of the disk (deg).
+- `['pa']`: Position angle of the disk (deg).
 - `['vel_sign']`: Sign of the velocity (1 for approaching, -1 for receding).
-- `['Rout']`: Outer radius of the disk in au.
+- `['Rout']`: Outer radius of the disk (au).
 - `['dRA']`: Offset in RA (arcsec).
 - `['dDEC']`: Offset in DEC (arcsec).
 
