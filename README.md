@@ -77,7 +77,8 @@ $$H = h_0 \left(\frac{r}{100\text{au}}\right)^p
 where:
 - $h_0$ is a scaling factor for the height. (Dictionary Key: `['h0_u']`, `['h0_l']`)
 - $r$ is the radial distance from the center of the disk.
-- $p$ and $q$ are power-law exponents. (Dictionary Key: `['p_u']`, `['p_l']`)
+- $p$ is power law index for the surfaces. (Dictionary Key: `['p_u']`, `['p_l']`)
+- $q$ is tapering index for the surfaces. (Dictionary Key: `['q_u']`, `['q_l']`)
 - $R_b$ is a characteristic radius beyond which the height drops off exponentially. (Dictionary Key: `['Rb_u']`, `['Rb_l']`)
 
 ### Line Widths
@@ -90,7 +91,7 @@ where:
 - $L_{0}$ is a scaling factor for the line width. (Dictionary Key: `['L0']`)
 - $r$ is the radial distance from the center of the disk.
 - $z$ is the vertical distance from the midplane of the disk.
-- $p$ and $q$ are power-law exponents. (Dictionary Key: `['p']`, `['q']`)
+- $p$ and $q$ are power law index for the linewidth as a function of radius and height, respectively. (Dictionary Key: `['p']`, `['q']`)
 
 ## Output
 - If `savefits` is True, the masks will be saved as a FITS file.
