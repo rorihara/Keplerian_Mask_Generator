@@ -29,7 +29,7 @@ pip install numpy matplotlib astropy opencv-python
 
 You need to set several input parameters at the beginning of the script.
 
-- pd: Path to the parent directory
+- `pd`
    - Description: The file path to the directory containing the input data and where the output will be saved.
    - Example: /path/to/parent/directory
 - cf: Convolution factor
