@@ -55,7 +55,7 @@ where:
 - $p$ and $𝑞$ are power-law exponents.
 - $R_b$ is a characteristic radius beyond which the height drops off exponentially.
 
-### Radially Varying Line Widths
+### Line Widths
 
 $$\Delta V = L_{0} \left(\frac{r}{100\text{au}}\right)^p \left(\frac{z}{100\text{au}}\right)^q $$
 
