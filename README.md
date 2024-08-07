@@ -22,7 +22,7 @@ To run this script, you need the following Python libraries:
 
 Install the required libraries using the following command:
 ```bash
-pip install numpy matplotlib astropy opencv-python scipy
+pip install numpy matplotlib astropy opencv-python
 ```
 
 ## Input Parameters
