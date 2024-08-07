@@ -7,7 +7,7 @@ A script to build a Keplerian mask based to be used for CLEANing or moment map a
 First, load up the function into the CASA instance:
 
 ```python
-python make_keplerianmask.py
+python make_KeplerianMask.py
 ```
 
 ### Radially Varying Line Widths
