@@ -8,7 +8,7 @@ This repository contains a Python script for generating Keplerian masks based to
 2. Set the input parameters in the script.
 3. Run the script.
    
-```python
+```bash
 python make_KeplerianMask.py
 ```
 
