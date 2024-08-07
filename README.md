@@ -1,4 +1,4 @@
-# make_keplerian_mask.py
+# make_keplerianmask.py
 
 A script to build a Keplerian mask based to be used for CLEANing or moment map analysis. This will grab the image properties (axes, beam properties and so on) from the provide CASA image.
 
@@ -7,8 +7,7 @@ A script to build a Keplerian mask based to be used for CLEANing or moment map a
 First, load up the function into the CASA instance:
 
 ```python
-CASA <X>: execfile('path/to/keplerian_mask.py')
-     ...: Successfully imported `make_mask`.
+python make_keplerianmask.py
 ```
 
 ### Radially Varying Line Widths
