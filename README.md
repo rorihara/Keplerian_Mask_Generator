@@ -15,7 +15,7 @@ python make_KeplerianMask.py
 
 To run this script, you need the following Python libraries:
 
-- `os`
+* `os`
 - `numpy`
 - `matplotlib`
 - `astropy`
