@@ -59,7 +59,6 @@ You need to set several input parameters at the beginning of the script. These p
 ### Height of Emitting Surfaces
 
 The height of the emitting surfaces is modeled using the following equation:
-
 $$H = h_0 \left(\frac{r}{100\text{au}}\right)^p
 \exp\left[-\left(\frac{r}{R_b}\right)^q\right]$$
 
