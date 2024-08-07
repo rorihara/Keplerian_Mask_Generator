@@ -3,9 +3,11 @@
 This repository contains a Python script for generating Keplerian masks based to be used for CLEANing or moment map analysis. The script processes astronomical observation data to create masks for specific celestial objects' disks.
 
 ## How to Run
+
 1. Install the required libraries.
 2. Set the input parameters in the script.
 3. Run the script.
+   
 ```python
 python make_KeplerianMask.py
 ```
@@ -17,12 +19,14 @@ To run this script, you need the following Python libraries:
 - `matplotlib`
 - `astropy`
 - `cv2` (OpenCV)
+
 Install the required libraries using the following command:
 ```bash
 pip install numpy matplotlib astropy opencv-python scipy
 ```
 
 ## Input Parameters
+
 You need to set several input parameters at the beginning of the script.
 
 - `pd`: Path to the parent directory
@@ -39,7 +43,10 @@ You need to set several input parameters at the beginning of the script.
 - If `savefits` is `True`, the generated mask will be saved as a FITS file.
 - If `make_animation` is `True`, an animation will be created for the specified velocity range.
 
-## 
+## Disk Model
+
+## Height of Emitting Surfaces
+
 
 ### Radially Varying Line Widths
 
