@@ -16,6 +16,8 @@ source = {
     'pa':30, # position angle (deg)
     'vel_sign':1, # 1 for counterclockwise, -1 for clockwise
     'Rout':500, # disk radius (au)
+    'dRA':0.0, # offset in RA (arcsec)
+    'dDEC':0.0, # offset in DEC (arcsec)
     'h0_u':30, # scaling factor for the height of the upper surface
     'p_u':1.0, # power law index of the upper surface
     'Rb_u':300, # break radius of the upper surface (au)
