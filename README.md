@@ -45,7 +45,7 @@ You need to set several input parameters at the beginning of the script.
 
 ## Disk Model
 
-## Height of Emitting Surfaces
+### Height of Emitting Surfaces
 
 
 ### Radially Varying Line Widths
@@ -56,4 +56,4 @@ With higher spatial resolutions it is possible to resolve the radially changing 
 
 ### Author
 
-Written by Ryuta Orihara (roriharaiba@gmail.com), 2024.
+Ryuta Orihara (roriharaiba@gmail.com)
