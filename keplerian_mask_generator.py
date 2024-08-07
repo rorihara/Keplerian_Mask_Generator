@@ -103,8 +103,12 @@ nf = header['NAXIS3'] # number of channels
 f_list = np.linspace(f_start, f_start+df*nf, nf)
 vel_list = clight*(restfreq-f_list)/restfreq/km2cm
 vel_list_vsys = vel_list - Vsys
-chan_top = np.argmin(np.abs(vel_list_vsys - animation_velocityrange))
-chan_bottom = np.argmin(np.abs(vel_list_vsys + animation_velocityrange))
+if df > 0:
+    chan_top = np.argmin(np.abs(vel_list_vsys - animation_velocityrange))
+    chan_bottom = np.argmin(np.abs(vel_list_vsys + animation_velocityrange))
+else:
+    chan_top = np.argmin(np.abs(vel_list_vsys + animation_velocityrange))
+    chan_bottom = np.argmin(np.abs(vel_list_vsys - animation_velocityrange))
 
 # Create keplerian mask
 # Base vectors
