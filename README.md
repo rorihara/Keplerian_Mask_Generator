@@ -48,13 +48,13 @@ You need to set several input parameters at the beginning of the script. These p
 
 ### Basic Information
 
-- `['dpc']`: The distance to the source in parsecs.
-- `['Mstar']`: The mass of the central star in solar masses.
-- `['vsys']`: The systemic velocity of the disk in km/s.
-- `['incl']`: The inclination angle of the disk in degrees.
-- `['pa']`: The position angle of the disk in degrees.
-- `['vel_sign']`: The sign of the velocity (1 for approaching, -1 for receding).
-- `['Rout']`: The outer radius of the disk in au.
+- `['dpc']`: Distance to the source in pc.
+- `['Mstar']`: Mass of the central star in solar masses.
+- `['vsys']`: Systemic velocity of the disk in km/s.
+- `['incl']`: Inclination angle of the disk in degrees.
+- `['pa']`: Position angle of the disk in degrees.
+- `['vel_sign']`: Sign of the velocity (1 for approaching, -1 for receding).
+- `['Rout']`: Outer radius of the disk in au.
 
 ### Height of Emitting Surfaces
 
