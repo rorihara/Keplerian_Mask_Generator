@@ -53,7 +53,7 @@ $$H = h_0 \left(\frac{r}{100\text{au}}\right)^p \exp\left(-\left(\frac{r}{Rb}\ri
 
 With higher spatial resolutions it is possible to resolve the radially changing line width of emission lines. This manifests as a change in the width of the emission pattern as a function of radius. We assume that the radial profile of the line width (here we are describing the Doppler parameter, so a factor of 1.665 times smaller than the FWHM, is well described by a powerlaw,
 
-$$\Delta V = Lw0 \left(\frac{r}{100\text{au}}\right)^p \left(\frac{z}{100\text{au}}\right)^q $$
+$$\Delta V = L_{w0} \left(\frac{r}{100\text{au}}\right)^p \left(\frac{z}{100\text{au}}\right)^q $$
 
 ### Author
 
