@@ -50,7 +50,11 @@ You need to set several input parameters at the beginning of the script.
 $$H = h_0 \left(\frac{r}{100\text{au}}\right)^p \exp\left[-\left(\frac{r}{R_b}\right)^q\right]$$
 
 where:
-$H$ is the height of the emitting surface.
+- $H$ is the height of the emitting surface.
+- $h_0$ is a scaling factor for the height.
+- $r$ is the radial distance from the center of the disk.
+- $p$ and $𝑞$ are power-law exponents.
+- $R_b$ is a characteristic radius beyond which the height drops off exponentially.
 
 ### Radially Varying Line Widths
 
