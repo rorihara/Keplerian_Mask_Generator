@@ -27,8 +27,8 @@ python make_KeplerianMask.py
 
 ## Output
 
--If savefits is True, the generated mask will be saved as a FITS file.
--If make_animation is True, an animation will be created for the specified velocity range.
+- If savefits is True, the generated mask will be saved as a FITS file.
+- If make_animation is True, an animation will be created for the specified velocity range.
 
 ## 
 
