@@ -2,8 +2,6 @@
 
 A script to build a Keplerian mask based to be used for CLEANing or moment map analysis. This will grab the image properties (axes, beam properties and so on) from the provide CASA image.
 
-[![DOI](https://zenodo.org/badge/247991417.svg)](https://zenodo.org/badge/latestdoi/247991417)
-
 ## Basic Usage
 
 First, load up the function into the CASA instance:
@@ -113,19 +111,6 @@ With higher spatial resolutions it is possible to resolve the radially changing 
 
 ![alt text](https://latex.codecogs.com/gif.latex?\Delta&space;V&space;(r)&space;=&space;\Delta&space;V_{0}&space;\times&space;\left(&space;\frac{r}{1^{\prime\prime}}&space;\right)^{\Delta&space;V_q} "Equation 1")
 
-where `dV0` and `dVq` are parameters which can control this surface. The default values are 300 m/s for `dV0` and -0.5 for `dVq`.
-
-```python
-CASA <X>: make_mask(image='image_name.image',
-     ...:           inc=30.0,
-     ...:           PA=75.0,
-     ...:           mstar=1.0,
-     ...:           dist=140.0,
-     ...:           vlsr=5.1e3,
-     ...:           dV0=500.0,
-     ...:           dVq=-0.45)
-```
-
 ### Author
 
-Written by Richard Teague (rteague@mit.edu), 2020.
+Written by Ryuta Orihara (roriharaiba@gmail.com), 2024.
