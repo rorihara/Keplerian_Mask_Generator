@@ -78,7 +78,7 @@ where:
 - $h_0$ is a scaling factor for the height. (Dictionary Key: `['h0_u']`, `['h0_l']`)
 - $r$ is the radial distance from the center of the disk.
 - $p$ and $q$ are power-law exponents. (Dictionary Key: `['p_u']`, `['p_l']`)
-- $R_b$ is a characteristic radius beyond which the height drops off　exponentially. (Dictionary Key: `['Rb_u']`, `['Rb_l']`)
+- $R_b$ is a characteristic radius beyond which the height drops off exponentially. (Dictionary Key: `['Rb_u']`, `['Rb_l']`)
 
 ### Line Widths
 The profile of the line width (Doppler parameter) is modeled using the following equation:
