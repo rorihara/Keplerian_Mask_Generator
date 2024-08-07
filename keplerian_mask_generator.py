@@ -76,6 +76,8 @@ Vsys = source['vsys']
 drot = source['vel_sign']
 incl = source['incl']
 pa = source['pa']
+dRA = source['dRA']
+dDEC = source['dDEC']
 
 # Slice data (space)
 if slice_data == True:
@@ -120,10 +122,10 @@ H_u = h_surf(R, source['h0_u'], source['p_u'], source['Rb_u'], source['q_u'])
 if same_upperlower == True: H_l = H_u
 else: H_l = h_surf(R, source['h0_l'], source['p_l'], source['Rb_l'], source['q_l'])
 
-Sux = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) + H_u*no[0]
-Suy = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) + H_u*no[1]
-Slx = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) - H_l*no[0]
-Sly = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) - H_l*no[1]
+Sux = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) + H_u*no[0] + dDEC
+Suy = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) + H_u*no[1] + dRA
+Slx = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) - H_l*no[0] + dDEC
+Sly = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) - H_l*no[1] + dRA
 
 # Velocity field in the upper surface
 Vkep_u = (G*M/((R*au2cm)**2+(H_u*au2cm)**2)**(3/2))**0.5 * R*au2cm /km2cm
