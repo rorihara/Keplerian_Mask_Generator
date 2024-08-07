@@ -27,17 +27,17 @@ source = {
     'pa':30, # position angle (deg)
     'vel_sign':1, # 1 for counterclockwise, -1 for clockwise
     'Rout':500, # disk radius (au)
-    'z0_u':30, # height of the upper surface at 100 au
-    'p_u':1.0, # power of the upper surface
+    'h0_u':30, # scaling factor for the height of the upper surface
+    'p_u':1.0, # power law index of the upper surface
     'Rb_u':300, # break radius of the upper surface (au)
-    'q_u':1.0, # taper of the upper surface
-    'z0_l':30, # height of the lower surface at 100 au (if same_upperlower == False)
-    'p_l':1.0, # power of the lower surface (if same_upperlower == False)
+    'q_u':1.0, # tapering index of the upper surface
+    'h0_l':30, # scaling factor for the height of the lower surface (if same_upperlower == False)
+    'p_l':1.0, # power law index of the lower surface (if same_upperlower == False)
     'Rb_l':300, # break radius of the lower surface (au) (if same_upperlower == False)
-    'q_l':1.0, # taper of the lower surface (if same_upperlower == False)
-    'Lw0':0.5, # linewidth at 100 au (km/s)
-    'p':-0.5, # power of the lineprofile (r)
-    'q':-0.1 # power of the lineprofile (z)
+    'q_l':1.0, # tapering index of the lower surface (if same_upperlower == False)
+    'L0':0.5, # linewidth at 100 au (km/s)
+    'p':-0.5, # power law index for the linewidth as a function of radius
+    'q':-0.1 # power law index for the linewidth as a function of height
     }
 ################################################################################
 
@@ -64,12 +64,12 @@ def rot(i, p):
     return np.array([[cp, -sp * ci, -sp * si], [sp, cp * ci, cp * si], [0, -si, ci]])
 
 # Surface of the disk
-def z_surf(r, z0, p, Rb, q, R=100):
-    return z0*(r/R)**p * np.exp(-(r/Rb)**q)
+def h_surf(r, h0, p, Rb, q, R=100):
+    return h0*(r/R)**p * np.exp(-(r/Rb)**q)
 
 # Linewidth
-def linewidth(r, z, Lw0, p, q):
-    return Lw0 * (r/100)**p * (z/100)**q
+def linewidth(r, z, L0, p, q):
+    return L0 * (r/100)**p * (z/100)**q
 
 # Circulate kernel for beam convolution
 def circular_kernel(beam_pix):
@@ -148,25 +148,25 @@ base_o = (lo, mo, no) # base vectors
 R_list = np.arange(0, Rmax+pix*dpc/2, pix*dpc/2)[1:]
 t_list = np.arange(0, 2*np.pi, pix*dpc/Rmax/2)
 R, t = np.meshgrid(R_list, t_list) 
-Z_u = z_surf(R, source['z0_u'], source['p_u'], source['Rb_u'], source['q_u'])
-if same_upperlower == True: Z_l = Z_u
-else: Z_l = z_surf(R, source['z0_l'], source['p_l'], source['Rb_l'], source['q_l'])
+H_u = h_surf(R, source['h0_u'], source['p_u'], source['Rb_u'], source['q_u'])
+if same_upperlower == True: H_l = H_u
+else: H_l = h_surf(R, source['h0_l'], source['p_l'], source['Rb_l'], source['q_l'])
 
-Sux = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) + Z_u*no[0]
-Suy = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) + Z_u*no[1]
-Slx = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) - Z_l*no[0]
-Sly = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) - Z_l*no[1]
+Sux = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) + H_u*no[0]
+Suy = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) + H_u*no[1]
+Slx = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) - H_l*no[0]
+Sly = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) - H_l*no[1]
 
 # Velocity field in the upper surface
-Vkep_u = (G*M/((R*au2cm)**2+(Z_u*au2cm)**2)**(3/2))**0.5 * R*au2cm /km2cm
+Vkep_u = (G*M/((R*au2cm)**2+(H_u*au2cm)**2)**(3/2))**0.5 * R*au2cm /km2cm
 Vz_u = - drot*Vkep_u*(-np.sin(t)*lo[2] + np.cos(t)*mo[2]) + Vsys
-dVzu = linewidth(R, Z_u, source['Lw0'], source['p'], source['q'])
+dVzu = linewidth(R, H_u, source['L0'], source['p'], source['q'])
 Vzup = Vz_u+dVzu; Vzum = Vz_u-dVzu; Vzur = np.dstack((Vzum,Vzup))
 
 # Velocity field in the lower surface
-Vkep_l = (G*M/((R*au2cm)**2+(Z_l*au2cm)**2)**(3/2))**0.5 * R*au2cm /km2cm
+Vkep_l = (G*M/((R*au2cm)**2+(H_l*au2cm)**2)**(3/2))**0.5 * R*au2cm /km2cm
 Vz_l = - drot*Vkep_l*(-np.sin(t)*lo[2] + np.cos(t)*mo[2]) + Vsys
-dVzl = linewidth(R, Z_l, source['Lw0'], source['p'], source['q'])
+dVzl = linewidth(R, H_l, source['L0'], source['p'], source['q'])
 Vzlp = Vz_l+dVzl; Vzlm = Vz_l-dVzl; Vzlr = np.dstack((Vzlm,Vzlp))
 
 # Make masks
@@ -216,16 +216,16 @@ if make_animation == True:
     R_list_r = np.linspace(0,Rmax,6)[1:]
     t_list_r = np.linspace(0,2*np.pi,2000)
     R, t = np.meshgrid(R_list_r, t_list_r) 
-    Z_u = z_surf(R, source['z0_u'], source['p_u'], source['Rb_u'], source['q_u'])
-    Sux_r = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) + Z_u*no[0]
-    Suy_r = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) + Z_u*no[1]
+    H_u = h_surf(R, source['h0_u'], source['p_u'], source['Rb_u'], source['q_u'])
+    Sux_r = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) + H_u*no[0]
+    Suy_r = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) + H_u*no[1]
 
     R_list_t = np.linspace(0,Rmax,2000)[1:]
     t_list_t = np.arange(0,2*np.pi,np.pi/4)
     R, t = np.meshgrid(R_list_t, t_list_t) 
-    Z_u = z_surf(R, source['z0_u'], source['p_u'], source['Rb_u'], source['q_u'])
-    Sux_t = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) + Z_u*no[0]
-    Suy_t = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) + Z_u*no[1]
+    H_u = h_surf(R, source['h0_u'], source['p_u'], source['Rb_u'], source['q_u'])
+    Sux_t = R*(np.cos(t)*lo[0] + np.sin(t)*mo[0]) + H_u*no[0]
+    Suy_t = R*(np.cos(t)*lo[1] + np.sin(t)*mo[1]) + H_u*no[1]
 
     # Make figure
     fig, ax = plt.subplots(1,2, figsize=(8,4), constrained_layout=True)
@@ -252,7 +252,7 @@ if make_animation == True:
 
     ani = FuncAnimation(fig, update, frames=chan_top-chan_bottom+1, interval=10)
     writer = HTMLWriter(fps=15)#, embed_frames=True)
-    savehtml = source['name']+"_kepler_animation_test.html"
+    savehtml = source['name']+"_kepler_animation.html"
     ani.save(savehtml, writer=writer)
     print('Done.')
     print(savehtml+ ' was saved.')
