@@ -76,8 +76,8 @@ Vsys = source['vsys']
 drot = source['vel_sign']
 incl = source['incl']
 pa = source['pa']
-dRA = source['dRA']
-dDEC = source['dDEC']
+dRA = source['dRA']*dpc
+dDEC = source['dDEC']*dpc
 
 # Slice data (space)
 if slice_data == True:
