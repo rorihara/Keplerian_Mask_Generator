@@ -13,16 +13,11 @@ python make_KeplerianMask.py
 ## Required Libraries
 
 To run this script, you need the following Python libraries:
-
-- `os`
 - `numpy`
 - `matplotlib`
 - `astropy`
 - `cv2` (OpenCV)
-- `scipy`
-
 Install the required libraries using the following command:
-
 ```bash
 pip install numpy matplotlib astropy opencv-python scipy
 ```
