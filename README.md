@@ -29,28 +29,28 @@ pip install numpy matplotlib astropy opencv-python
 
 ## Input Parameters
 
-You need to set several input parameters at the beginning of the script. These parameters control the behavior of the script and the nature of the output. Here is a detailed description of each parameter:
+You need to set several input parameters at the beginning of the script. These parameters control the behavior of the script and the nature of the output. Here is a detailed description of each parameter and the corresponding dictionary key:
 
 - `pd`:
-   - The file path to the directory containing the input data and where the output will be saved.
+   - *Description*: File path to the directory containing the input data and where the output will be saved.
    - *Example*: '/path/to/parent/directory/'
 - `cf`:
-   - A factor used to convolve the data. This parameter adjusts the smoothing applied to the data.
+   - *Description*: Factor used to convolve the data. This parameter adjusts the smoothing applied to the data.
    - *Example*: 1.0 (beam size)
 - `savefits`:
-   - A boolean flag indicating whether the generated mask should be saved as a FITS file.
+   - *Description*: Boolean flag indicating whether the generated mask should be saved as a FITS file.
    - *Values*: True (save the FITS file), False (do not save the FITS file, save as a npy file)
 - `slice_data`:
-   - A boolean flag that determines if the data should be sliced. This is relevant only if savefits is set to False.
+   - *Description*: Boolean flag that determines if the data should be sliced. This is relevant only if savefits is set to False.
    - *Values*: True (slice the data), False (do not slice the data)
 - `same_upperlower`:
-   - A boolean flag indicating whether the same parameters should be used for both the upper and lower surfaces of the disk.
+   - *Description*: Boolean flag indicating whether the same parameters should be used for both the upper and lower surfaces of the disk.
    - *Values*: True (use the same parameters for both surfaces), False (use different parameters for each surface)
 - `make_animation`:
-   - A boolean flag indicating whether an animation of the mask should be created. This is relevant only if savefits is set to False.
+   - *Description*: Boolean flag indicating whether an animation of the mask should be created. This is relevant only if savefits is set to False.
    - *Values*: True (create an animation), False (do not create an animation)
 - `animation_velocityrange`:
-   - The velocity range for the animation, specified as a maximum value in km/s.
+   - *Description*: Velocity range for the animation, specified as a maximum value in km/s.
    - *Example*: 3 (create an animation for velocities from -3 km/s to 3 km/s)
 
 ## Disk Model
