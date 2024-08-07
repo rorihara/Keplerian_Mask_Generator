@@ -70,8 +70,7 @@ where:
 - $R_b$ is a characteristic radius beyond which the height drops off　exponentially. (`['Rb_u']`, `['Rb_l']`)
 
 ### Line Widths
-The radial profile of the line width (Doppler parameter) is modeled using the
-following equation:
+The profile of the line width (Doppler parameter) is modeled using the following equation:
 
 $$\Delta V = L_{0} \left(\frac{r}{100\text{au}}\right)^p
 \left(\frac{z}{100\text{au}}\right)^q $$
