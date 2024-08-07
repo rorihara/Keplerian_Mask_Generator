@@ -41,7 +41,7 @@ You need to set several input parameters at the beginning of the script.
    - Values: True (use the same parameters for both surfaces), False (use different parameters for each surface)
 - `make_animation`: A boolean flag indicating whether an animation of the mask should be created. This is relevant only if savefits is set to False.
    - Values: True (create an animation), False (do not create an animation)
-- `animation_velocityrange`: The velocity range for the animation, specified as a tuple of minimum and maximum values in km/s.
+- `animation_velocityrange`: The velocity range for the animation, specified as a maximum value in km/s.
    - Example: 3 (create an animation for velocities from -3 km/s to 3 km/s)
 
 
