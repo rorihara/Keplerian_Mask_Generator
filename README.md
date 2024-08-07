@@ -28,7 +28,7 @@ pip install numpy matplotlib astropy opencv-python
 
 ## Input Parameters
 
-You need to set several input parameters at the beginning of the script. These parameters control the behavior of the script and the nature of the output. Here is a detailed description of each parameter and the corresponding dictionary key:
+Before running `make_KeplerianMask.py`, you need to set some input parameters in `input_parameters.py`.  Here is a detailed description of each parameter and the corresponding dictionary key:
 
 - `pd`:
    - *Description*: File path to the directory containing the input data and where the output will be saved.
