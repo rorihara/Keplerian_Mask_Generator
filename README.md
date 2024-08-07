@@ -27,7 +27,7 @@ pip install numpy matplotlib astropy opencv-python
 
 ## Input Parameters
 
-You need to set several input parameters at the beginning of the script.
+You need to set several input parameters at the beginning of the script. These parameters control the behavior of the script and the nature of the output. Here is a detailed description of each parameter:
 
 - `pd`: The file path to the directory containing the input data and where the output will be saved.
    - Example: '/path/to/parent/directory/'
@@ -53,6 +53,8 @@ You need to set several input parameters at the beginning of the script.
 ## Disk Model
 
 ### Height of Emitting Surfaces
+
+The height of the emitting surfaces is modeled using the following equation:
 
 $$H = h_0 \left(\frac{r}{100\text{au}}\right)^p \exp\left[-\left(\frac{r}{R_b}\right)^q\right]$$
 
