@@ -46,6 +46,9 @@ You need to set several input parameters at the beginning of the script. These p
 
 ## Disk Model
 
+### General Infomation
+
+
 ### Height of Emitting Surfaces
 
 The height of the emitting surfaces is modeled using the following equation:
