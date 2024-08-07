@@ -47,7 +47,7 @@ You need to set several input parameters at the beginning of the script.
 
 ### Height of Emitting Surfaces
 
-$$H = h_0 \left(\frac{r}{100\text{au}}\right)^p \exp\left(-\left(\frac{r}{Rb}\right)^q\right)$$
+$$H = h_0 \left(\frac{r}{100\text{au}}\right)^p \exp\left(-\left(\frac{r}{R_b}\right)^q\right)$$
 
 ### Radially Varying Line Widths
 
