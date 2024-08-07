@@ -15,6 +15,8 @@ python make_KeplerianMask.py
 ## Required Libraries
 
 To run this script, you need the following Python libraries:
+
+- Python 3.x
 - `numpy`
 - `matplotlib`
 - `astropy`
@@ -80,6 +82,11 @@ where:
 - $r$ is the radial distance from the center of the disk.
 - $z$ is the vertical distance from the midplane of the disk.
 - $p$ and $q$ are power-law exponents. (`['p']`, `['q']`)
+
+## Output
+- If `savefits' is True, the masks will be saved as a FITS file.
+- If `make_animation` is True, an animation will be created and saved as an HTML file.
+
 
 ### Author
 
