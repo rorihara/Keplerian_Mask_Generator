@@ -6,9 +6,9 @@ This tool generates Keplerian masks for astronomical data, optionally saves them
 
 1. Install the required libraries.
 2. Set the input parameters in the `input_parameters.py` script.
-3. Run the `make_KeplerianMask.py` script.
+3. Run the `keplerian_mask_generator.py` script.
 ```bash
-python make_KeplerianMask.py
+python keplerian_mask_generator.py
 ```
 
 ## Required Libraries
@@ -28,7 +28,7 @@ pip install numpy matplotlib astropy opencv-python
 
 ## Input Parameters
 
-Before running `make_KeplerianMask.py`, you need to set some input parameters in `input_parameters.py`.  Here is a detailed description of each parameter and the corresponding dictionary key:
+Before running `keplerian_mask_generator.py`, you need to set some input parameters in `input_parameters.py`.  Here is a detailed description of each parameter and the corresponding dictionary key:
 
 - `pd`:
    - *Description*: File path to the directory containing the input data and where the output will be saved.
