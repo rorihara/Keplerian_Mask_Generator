@@ -29,7 +29,7 @@ pip install numpy matplotlib astropy opencv-python
 
 You need to set several input parameters at the beginning of the script.
 
-- `pd`: The file path to the directory containing the input data and where the output will be saved.
+- `**pd**`: The file path to the directory containing the input data and where the output will be saved.
    - **Example**: `'/path/to/parent/directory/'`
 - `cf`: A factor used to convolve the data. This parameter adjusts the smoothing applied to the data.
    - **Example**: 1.0 (beam size)
