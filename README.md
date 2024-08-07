@@ -64,10 +64,10 @@ $$H = h_0 \left(\frac{r}{100\text{au}}\right)^p
 \exp\left[-\left(\frac{r}{R_b}\right)^q\right]$$
 
 where:
-- $h_0$ is a scaling factor for the height. `['h0_u']`, `['h0_l']`
+- $h_0$ is a scaling factor for the height. (`['h0_u']`, `['h0_l']`)
 - $r$ is the radial distance from the center of the disk.
-- $p$ and $q$ are power-law exponents. `['p_u']`, `['p_l']`
-- $R_b$ is a characteristic radius beyond which the height drops off　exponentially. `['Rb_u']`, `['Rb_l']`
+- $p$ and $q$ are power-law exponents. (`['p_u']`, `['p_l']`)
+- $R_b$ is a characteristic radius beyond which the height drops off　exponentially. (`['Rb_u']`, `['Rb_l']`)
 
 ### Line Widths
 The radial profile of the line width (Doppler parameter) is modeled using the
@@ -77,10 +77,10 @@ $$\Delta V = L_{0} \left(\frac{r}{100\text{au}}\right)^p
 \left(\frac{z}{100\text{au}}\right)^q $$
 
 where:
-- $L_{0}$ is a scaling factor for the line width. `['L0']`
+- $L_{0}$ is a scaling factor for the line width. (`['L0']`)
 - $r$ is the radial distance from the center of the disk.
 - $z$ is the vertical distance from the midplane of the disk.
-- $p$ and $q$ are power-law exponents. `['p']`, `['q']`
+- $p$ and $q$ are power-law exponents. (`['p']`, `['q']`)
 
 ### Author
 
