@@ -53,10 +53,10 @@ The height of the emitting surfaces is modeled using the following equation:
 $$H = h_0 \left(\frac{r}{100\text{au}}\right)^p \exp\left[-\left(\frac{r}{R_b}\right)^q\right]$$
 
 where:
-- $h_0$ is a scaling factor for the height.
+- $h_0$ is a scaling factor for the height. `source['h0_u']`, `source['h0_l']`
 - $r$ is the radial distance from the center of the disk.
-- $p$ and $𝑞$ are power-law exponents.
-- $R_b$ is a characteristic radius beyond which the height drops off exponentially.
+- $p$ and $q$ are power-law exponents. `source['p_u']`, `source['p_l']`
+- $R_b$ is a characteristic radius beyond which the height drops off exponentially. `source['Rb_u']`, `source['Rb_l']`
 
 ### Line Widths
 The radial profile of the line width (Doppler parameter) is modeled using the following equation:
