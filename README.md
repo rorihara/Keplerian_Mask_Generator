@@ -1,4 +1,4 @@
-# make_keplerianmask.py
+# make_KeplerianMask.py
 
 A script to build a Keplerian mask based to be used for CLEANing or moment map analysis. This will grab the image properties (axes, beam properties and so on) from the provide CASA image.
 
