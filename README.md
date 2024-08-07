@@ -5,9 +5,8 @@ This tool generates Keplerian masks for astronomical data, optionally saves them
 ## How to Run
 
 1. Install the required libraries.
-2. Set the input parameters in the script.
-3. Run the script.
-
+2. Set the input parameters in the `input_parameters.py` script.
+3. Run the `make_KeplerianMask.py` script.
 ```bash
 python make_KeplerianMask.py
 ```
