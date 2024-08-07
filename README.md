@@ -31,16 +31,16 @@ You need to set several input parameters at the beginning of the script.
 - `pd`: Path to the parent directory
 - `cf`: Convolution factor
 - `savefits`: Whether to save the FITS file or not
-- `slice_data`: Whether to slice the data or not (if savefits is False)
+- `slice_data`: Whether to slice the data or not (if `savefits` is `False`)
 - `same_upperlower`: Whether to use the same upper and lower surface or not
-- `make_animation`: Whether to make an animation or not (if savefits is False)
+- `make_animation`: Whether to make an animation or not (if `savefits` is `False`)
 - `animation_velocityrange`: Velocity range (km/s) for the animation
 
 
 ## Output
 
-- If savefits is True, the generated mask will be saved as a FITS file.
-- If make_animation is True, an animation will be created for the specified velocity range.
+- If `savefits` is `True`, the generated mask will be saved as a FITS file.
+- If `make_animation` is `True`, an animation will be created for the specified velocity range.
 
 ## 
 
