@@ -9,35 +9,35 @@ from matplotlib.animation import FuncAnimation
 from matplotlib.animation import HTMLWriter
 
 # Input parameters ###########################################################
-pd = '/Volumes/Extreme_SSD/obs_data/exoALMA/12CO_28ms/' #path to parent directory
+pd = 'path/to/parent' #path to parent directory
 cf = 1 #convolution factor
 savefits = False # whether to save the fits or not
-slice_data = True # whether to slice the data or not (if savefits == False)
+slice_data = False # whether to slice the data or not (if savefits == False)
 same_upperlower = False # whether to use the same upper and lower surface or not
 make_animation = True # whether to make an animation or not (if savefits == False)
 animation_velocityrange = 3 # velocity range (km/s) for the animation
 
 source = {
-    'name':'AA_Tau', # Source name
-    'fits':'AA_Tau_12CO.contsub_beam0.15_28ms_4sigma.clean.image.fits', # Fits file
-    'dpc':135, # Distance to the source (pc)
-    'Mstar':0.798, # Solar masses (Mo)
-    'vsys':6.498, # velocity of the system (km/s)
-    'incl':-58.785, # inclination (deg)
-    'pa':272.945, # position angle (deg)
-    'vel_sign':-1, # 1 for counterclockwise, -1 for clockwise
-    'Rout':623.524, # disk radius (au)
-    'z0_u':45.604, # height of the upper surface at 100 au
-    'p_u':1.137, # power of the upper surface
-    'Rb_u':286.968, # break radius of the upper surface (au)
-    'q_u':0.828, # taper of the upper surface
-    'z0_l':20.908, # height of the lower surface at 100 au (if same_upperlower == False)
-    'p_l':2.063, # power of the lower surface (if same_upperlower == False)
-    'Rb_l':211.199, # break radius of the lower surface (au) (if same_upperlower == False)
-    'q_l':1.385, # taper of the lower surface (if same_upperlower == False)
-    'Lw0':0.526, # linewidth at 100 au (km/s)
-    'p':-0.782, # power of the lineprofile (r)
-    'q':-0.109 # power of the lineprofile (z)
+    'name':'source', # Source name
+    'fits':'xxx.fits', # Fits file
+    'dpc':100, # Distance to the source (pc)
+    'Mstar':1.0, # Solar masses (Mo)
+    'vsys':5.0, # velocity of the system (km/s)
+    'incl':30, # inclination (deg)
+    'pa':30, # position angle (deg)
+    'vel_sign':1, # 1 for counterclockwise, -1 for clockwise
+    'Rout':500, # disk radius (au)
+    'z0_u':30, # height of the upper surface at 100 au
+    'p_u':1.0, # power of the upper surface
+    'Rb_u':300, # break radius of the upper surface (au)
+    'q_u':1.0, # taper of the upper surface
+    'z0_l':30, # height of the lower surface at 100 au (if same_upperlower == False)
+    'p_l':1.0, # power of the lower surface (if same_upperlower == False)
+    'Rb_l':300, # break radius of the lower surface (au) (if same_upperlower == False)
+    'q_l':1.0, # taper of the lower surface (if same_upperlower == False)
+    'Lw0':0.5, # linewidth at 100 au (km/s)
+    'p':-0.5, # power of the lineprofile (r)
+    'q':-0.1 # power of the lineprofile (z)
     }
 ################################################################################
 
