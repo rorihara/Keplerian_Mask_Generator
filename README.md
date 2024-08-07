@@ -1,6 +1,6 @@
 # keplerian_mask_generator.py
 
-This tool generates Keplerian masks for astronomical data, optionally saves them in FITS or NPY formats, and creates animations of the data with overlaid masks. It is designed to handle FITS files and allows customization of various parameters related to the source and disk properties.
+This tool generates Keplerian masks for astronomical data, optionally saves them in FITS or NPY formats, and creates animations of the data with overlaid masks. It is designed to handle FITS files and allows customization of various parameters related to the disk properties.
 
 ## How to Run
 
@@ -53,10 +53,10 @@ You need to set several input parameters at the beginning of the script. These p
    - *Description*: Velocity range for the animation, specified as a maximum value in km/s.
    - *Example*: 3 (create an animation for velocities from -3 km/s to 3 km/s)
 
-## Disk Model
+### Disk Model
 The source dictionary contains the following parameters:
 
-### Basic Information
+#### Basic Information
 - `['name']`: Source name.
 - `['fits']`: Name of the FITS file.
 - `['dpc']`: Distance to the source in pc.
@@ -67,7 +67,7 @@ The source dictionary contains the following parameters:
 - `['vel_sign']`: Sign of the velocity (1 for approaching, -1 for receding).
 - `['Rout']`: Outer radius of the disk in au.
 
-### Height of Emitting Surfaces
+#### Height of Emitting Surfaces
 
 The height of the emitting surfaces is modeled using the following equation:
 
@@ -81,7 +81,7 @@ where:
 - $q$ is tapering index for the surfaces. (Dictionary Key: `['q_u']`, `['q_l']`)
 - $R_b$ is a characteristic radius beyond which the height drops off exponentially. (Dictionary Key: `['Rb_u']`, `['Rb_l']`)
 
-### Line Widths
+#### Line Widths
 The profile of the line width (Doppler parameter) is modeled using the following equation:
 
 $$\Delta V = L_{0} \left(\frac{r}{100\text{au}}\right)^p
@@ -99,6 +99,6 @@ where:
 - If `make_animation` is True, an animation will be created and saved as an HTML file.
 
 
-### Author
+## Author
 
 Ryuta Orihara (roriharaiba@gmail.com)
