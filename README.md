@@ -44,12 +44,6 @@ You need to set several input parameters at the beginning of the script. These p
 - `animation_velocityrange`: The velocity range for the animation, specified as a maximum value in km/s.
    - Example: 3 (create an animation for velocities from -3 km/s to 3 km/s)
 
-
-## Output
-
-- If `savefits` is `True`, the generated mask will be saved as a FITS file.
-- If `make_animation` is `True`, an animation will be created for the specified velocity range.
-
 ## Disk Model
 
 ### Height of Emitting Surfaces
