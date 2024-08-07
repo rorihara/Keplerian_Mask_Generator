@@ -98,4 +98,5 @@ where:
 - If `make_animation` is True, an animation will be created and saved as an HTML file.
 
 ### Author
-Ryuta Orihara (roriharaiba@gmail.com)
+Ryuta Orihara (Ibaraki University)
+   email: roriharaiba@gmail.com
