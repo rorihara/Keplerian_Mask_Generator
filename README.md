@@ -62,6 +62,7 @@ The height of the emitting surfaces is modeled using the following equation:
 
 $$H = h_0 \left(\frac{r}{100\text{au}}\right)^p
 \exp\left[-\left(\frac{r}{R_b}\right)^q\right]$$
+
 where:
 - $h_0$ is a scaling factor for the height. `['h0_u']`, `['h0_l']`
 - $r$ is the radial distance from the center of the disk.
@@ -73,6 +74,7 @@ The radial profile of the line width (Doppler parameter) is modeled using the
 following equation:
 $$\Delta V = L_{0} \left(\frac{r}{100\text{au}}\right)^p
 \left(\frac{z}{100\text{au}}\right)^q $$
+
 where:
 - $L_{0}$ is a scaling factor for the line width. `['L0']`
 - $r$ is the radial distance from the center of the disk.
