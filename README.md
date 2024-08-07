@@ -7,7 +7,7 @@ This repository contains a Python script for generating Keplerian masks based to
 1. Install the required libraries.
 2. Set the input parameters in the script.
 3. Run the script.
-   
+
 ```bash
 python make_KeplerianMask.py
 ```
@@ -46,31 +46,38 @@ You need to set several input parameters at the beginning of the script. These p
 
 ## Disk Model
 
-### General Infomation
+### Basic Information
 
+- `['dpc']`: The distance to the source in parsecs.
+- `['Mstar']`: The mass of the central star in solar masses.
+- `['vsys']`: The systemic velocity of the disk in km/s.
+- `['incl']`: The inclination angle of the disk in degrees.
+- `['pa']`: The position angle of the disk in degrees.
+- `['vel_sign']`: The sign of the velocity (1 for approaching, -1 for receding).
+- `['Rout']`: The outer radius of the disk in au.
 
 ### Height of Emitting Surfaces
 
 The height of the emitting surfaces is modeled using the following equation:
 
-$$H = h_0 \left(\frac{r}{100\text{au}}\right)^p \exp\left[-\left(\frac{r}{R_b}\right)^q\right]$$
-
+$$H = h_0 \left(\frac{r}{100\text{au}}\right)^p
+\exp\left[-\left(\frac{r}{R_b}\right)^q\right]$$
 where:
-- $h_0$ is a scaling factor for the height. `source['h0_u']`, `source['h0_l']`
+- $h_0$ is a scaling factor for the height. `['h0_u']`, `['h0_l']`
 - $r$ is the radial distance from the center of the disk.
-- $p$ and $q$ are power-law exponents. `source['p_u']`, `source['p_l']`
-- $R_b$ is a characteristic radius beyond which the height drops off exponentially. `source['Rb_u']`, `source['Rb_l']`
+- $p$ and $q$ are power-law exponents. `['p_u']`, `['p_l']`
+- $R_b$ is a characteristic radius beyond which the height drops off　exponentially. `['Rb_u']`, `['Rb_l']`
 
 ### Line Widths
-The radial profile of the line width (Doppler parameter) is modeled using the following equation:
-
-$$\Delta V = L_{0} \left(\frac{r}{100\text{au}}\right)^p \left(\frac{z}{100\text{au}}\right)^q $$
-
+The radial profile of the line width (Doppler parameter) is modeled using the
+following equation:
+$$\Delta V = L_{0} \left(\frac{r}{100\text{au}}\right)^p
+\left(\frac{z}{100\text{au}}\right)^q $$
 where:
-- $L_{0}$ is a scaling factor for the line width. `source['L0']`
+- $L_{0}$ is a scaling factor for the line width. `['L0']`
 - $r$ is the radial distance from the center of the disk.
 - $z$ is the vertical distance from the midplane of the disk.
-- $p$ and $q$ are power-law exponents. `source['p']`, `source['q']`
+- $p$ and $q$ are power-law exponents. `['p']`, `['q']`
 
 ### Author
 
