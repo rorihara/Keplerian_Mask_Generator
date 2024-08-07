@@ -48,6 +48,7 @@ You need to set several input parameters at the beginning of the script.
 ### Height of Emitting Surfaces
 
 $$H = h_0 \left(\frac{r}{100\text{au}}\right)^p \exp\left[-\left(\frac{r}{R_b}\right)^q\right]$$
+
 where:
 - $h_0$ is a scaling factor for the height.
 - $r$ is the radial distance from the center of the disk.
@@ -57,6 +58,7 @@ where:
 ### Radially Varying Line Widths
 
 $$\Delta V = L_{w0} \left(\frac{r}{100\text{au}}\right)^p \left(\frac{z}{100\text{au}}\right)^q $$
+
 where:
 - $L_{w0}$ is a scaling factor for the line width.
 - $r$ is the radial distance from the center of the disk.
