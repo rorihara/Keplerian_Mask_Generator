@@ -65,6 +65,8 @@ The source dictionary contains the following parameters:
 - `['pa']`: Position angle of the disk in degrees.
 - `['vel_sign']`: Sign of the velocity (1 for approaching, -1 for receding).
 - `['Rout']`: Outer radius of the disk in au.
+- `['dRA']`: Offset in RA (arcsec).
+- `['dDEC']`: Offset in DEC (arcsec).
 
 #### Height of Emitting Surfaces
 
