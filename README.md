@@ -54,9 +54,11 @@ You need to set several input parameters at the beginning of the script. These p
    *Example*: 3 (create an animation for velocities from -3 km/s to 3 km/s)
 
 ## Disk Model
+The source dictionary contains the following parameters:
 
 ### Basic Information
-
+- `['name']`: Source name.
+- `['fits']`: Name of the FITS file.
 - `['dpc']`: Distance to the source in pc.
 - `['Mstar']`: Mass of the central star in solar masses.
 - `['vsys']`: Systemic velocity of the disk in km/s.
