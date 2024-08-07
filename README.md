@@ -91,7 +91,7 @@ where:
 - $L_{0}$ is a scaling factor for the line width. (Dictionary Key: `['L0']`)
 - $r$ is the radial distance from the center of the disk.
 - $z$ is the vertical distance from the midplane of the disk.
-- $p$ and $q$ are power law index for the linewidth as a function of radius and height, respectively. (Dictionary Key: `['p']`, `['q']`)
+- $p$ and $q$ are the power law indices for the linewidth as functions of radius and height, respectively. (Dictionary Keys: `['p']`, `['q']`)
 
 ## Output
 - If `savefits` is True, the masks will be saved as a FITS file.
