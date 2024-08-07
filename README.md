@@ -64,10 +64,10 @@ The radial profile of the line width (Doppler parameter) is modeled using the fo
 $$\Delta V = L_{0} \left(\frac{r}{100\text{au}}\right)^p \left(\frac{z}{100\text{au}}\right)^q $$
 
 where:
-- $L_{0}$ is a scaling factor for the line width.
+- $L_{0}$ is a scaling factor for the line width. `source['L0']`
 - $r$ is the radial distance from the center of the disk.
 - $z$ is the vertical distance from the midplane of the disk.
-- $p$ and $q$ are power-law exponents.
+- $p$ and $q$ are power-law exponents. `source['p']`, `source['q']`
 
 ### Author
 
