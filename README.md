@@ -47,13 +47,13 @@ You need to set several input parameters at the beginning of the script.
 
 ### Height of Emitting Surfaces
 
-$$z_{\text{surf}}(r, z0, p, Rb, q, R=100) = z0 \left(\frac{r}{R}\right)^p \exp\left(-\left(\frac{r}{Rb}\right)^q\right)$$
+$$z_{\text{surf}}(r, z0, p, Rb, q, R=100) = z_0 \left(\frac{r}{100\text{au}}\right)^p \exp\left(-\left(\frac{r}{Rb}\right)^q\right)$$
 
 ### Radially Varying Line Widths
 
 With higher spatial resolutions it is possible to resolve the radially changing line width of emission lines. This manifests as a change in the width of the emission pattern as a function of radius. We assume that the radial profile of the line width (here we are describing the Doppler parameter, so a factor of 1.665 times smaller than the FWHM, is well described by a powerlaw,
 
-$$ \text{linewidth}(r, z, Lw0, p, q) = Lw0 \left(\frac{r}{100}\right)^p \left(\frac{z}{100}\right)^q $$
+$$ \text{linewidth}(r, z, Lw0, p, q) = Lw0 \left(\frac{r}{100\text{au}}\right)^p \left(\frac{z}{100\text{au}}\right)^q $$
 
 ### Author
 
