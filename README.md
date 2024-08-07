@@ -1,6 +1,6 @@
-# make_KeplerianMask.py
+# keplerian_mask_generator.py
 
-This repository contains a Python script for generating Keplerian masks to be used for CLEANing or moment map analysis. The script processes astronomical observation data to create masks for specific celestial objects' disks.
+This tool generates Keplerian masks for astronomical data, optionally saves them in FITS or NPY formats, and creates animations of the data with overlaid masks. It is designed to handle FITS files and allows customization of various parameters related to the source and disk properties.
 
 ## How to Run
 
