@@ -98,7 +98,5 @@ where:
 - If `savefits` is False, the masks will be saved as a npy file.
 - If `make_animation` is True, an animation will be created and saved as an HTML file.
 
-
-## Author
-
+### Author
 Ryuta Orihara (roriharaiba@gmail.com)
