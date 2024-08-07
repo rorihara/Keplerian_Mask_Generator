@@ -1,14 +1,36 @@
 # make_KeplerianMask.py
 
-A script to build a Keplerian mask based to be used for CLEANing or moment map analysis. This will grab the image properties (axes, beam properties and so on) from the provide CASA image.
+This repository contains a Python script for generating Keplerian masks based to be used for CLEANing or moment map analysis. The script processes astronomical observation data to create masks for specific celestial objects' disks.
 
-## Basic Usage
+## Required Libraries
 
-First, load up the function into the CASA instance:
+To run this script, you need the following Python libraries:
+
+- `os`
+- `numpy`
+- `matplotlib`
+- `astropy`
+- `cv2` (OpenCV)
+- `scipy`
+
+Install the required libraries using the following command:
+
+```bash
+pip install numpy matplotlib astropy opencv-python scipy
+```
+## How to Run
+
 
 ```python
 python make_KeplerianMask.py
 ```
+
+## Output
+
+-If savefits is True, the generated mask will be saved as a FITS file.
+-If make_animation is True, an animation will be created for the specified velocity range.
+
+## 
 
 ### Radially Varying Line Widths
 
