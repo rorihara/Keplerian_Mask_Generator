@@ -5,7 +5,7 @@ import astropy.constants as C
 import astropy.units as U
 import astropy.io.fits as FITS
 import cv2
-from input_parameters.py import *
+from input_parameters import *
 from matplotlib.animation import FuncAnimation
 from matplotlib.animation import HTMLWriter
 
