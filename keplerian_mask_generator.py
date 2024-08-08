@@ -36,8 +36,8 @@ def h_surf(r, h0, p, Rb, q, R=100):
     return h0*(r/R)**p * np.exp(-(r/Rb)**q)
 
 # Linewidth
-def linewidth(r, z, L0, p, q):
-    return L0 * (r/100)**p * (z/100)**q
+def linewidth(r, h, L0, p, q):
+    return L0 * (r/100)**p * (h/100)**q
 
 # Circulate kernel for beam convolution
 def circular_kernel(beam_pix):
