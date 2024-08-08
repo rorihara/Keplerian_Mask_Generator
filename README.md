@@ -83,7 +83,7 @@ where:
 - $R_b$ is a characteristic radius beyond which the height drops off exponentially. (Dictionary Key: `['Rb_u']`, `['Rb_l']`)
 
 #### Line Widths
-The profile of the line width (Doppler parameter) is modeled using the following equation:
+The profile of the line width is modeled using the following equation:
 
 $$\Delta V = L_{0} \left(\frac{r}{100\text{au}}\right)^p
 \left(\frac{H}{100\text{au}}\right)^q $$
@@ -91,7 +91,7 @@ $$\Delta V = L_{0} \left(\frac{r}{100\text{au}}\right)^p
 where:
 - $L_{0}$ is a scaling factor for the line width. (Dictionary Key: `['L0']`)
 - $r$ is the radial distance from the center of the disk.
-- $H$ is the heigt of the emitting surface.
+- $H$ is the height of the emitting surface.
 - $p$ and $q$ are the power law indices for the linewidth as functions of radius and height, respectively. (Dictionary Keys: `['p']`, `['q']`)
 
 ## Output
