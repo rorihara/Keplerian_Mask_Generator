@@ -86,12 +86,12 @@ where:
 The profile of the line width (Doppler parameter) is modeled using the following equation:
 
 $$\Delta V = L_{0} \left(\frac{r}{100\text{au}}\right)^p
-\left(\frac{z}{100\text{au}}\right)^q $$
+\left(\frac{H}{100\text{au}}\right)^q $$
 
 where:
 - $L_{0}$ is a scaling factor for the line width. (Dictionary Key: `['L0']`)
 - $r$ is the radial distance from the center of the disk.
-- $z$ is the vertical distance from the midplane of the disk.
+- $H$ is the heigt of the emitting surface.
 - $p$ and $q$ are the power law indices for the linewidth as functions of radius and height, respectively. (Dictionary Keys: `['p']`, `['q']`)
 
 ## Output
