@@ -72,7 +72,7 @@ The source dictionary contains the following parameters:
 
 The height of the emitting surfaces is modeled using the following equation:
 
-$$H = h_0 \left(\frac{r}{100\text{au}}\right)^p
+$$h = h_0 \left(\frac{r}{100\text{au}}\right)^p
 \exp\left[-\left(\frac{r}{R_b}\right)^q\right]$$
 
 where:
@@ -86,12 +86,12 @@ where:
 The profile of the line width is modeled using the following equation:
 
 $$\Delta V = L_{0} \left(\frac{r}{100\text{au}}\right)^p
-\left(\frac{H}{100\text{au}}\right)^q $$
+\left(\frac{h}{100\text{au}}\right)^q $$
 
 where:
 - $L_{0}$ is a scaling factor for the line width. (Dictionary Key: `['L0']`)
 - $r$ is the radial distance from the center of the disk.
-- $H$ is the height of the emitting surface.
+- $h$ is the height of the emitting surface.
 - $p$ and $q$ are the power law indices for the linewidth as functions of radius and height, respectively. (Dictionary Keys: `['p']`, `['q']`)
 
 ## Output
