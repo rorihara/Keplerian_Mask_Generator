@@ -60,7 +60,7 @@ with FITS.open(fitsfile) as hdu:
     elif header['NAXIS'] == 3: data = hdu[0].data
     pix = header['CDELT2'] * deg2arcsec # Pixel size
     imsize = header['NAXIS1'] # Image size
-    if ('CASAMBM' in header) or (not 'BMAJ' in header):
+    if 'CASAMBM' in header:
         beam = hdu[1].data[0][0]
         if hdu[1].header['TUNIT1'] == 'deg': beam *= deg2arcsec
     else: beam = header['BMAJ'] * deg2arcsec
