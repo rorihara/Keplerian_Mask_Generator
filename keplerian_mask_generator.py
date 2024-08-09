@@ -167,7 +167,7 @@ print('Done.')
 # Save fits or npy
 if savefits == True:
     print('Saving fits...', end='', flush=True)
-    if header['NAXIS'] == 4: hdu[0].data[0] = all_masks.astype(np.uint8)
+    if header['NAXIS'] == 4: hdu[0].data = all_masks.astype(np.uint8)[np.newaxis]
     elif header['NAXIS'] == 3: hdu[0].data = all_masks.astype(np.uint8)
     hdu[0].header['BUNIT'] = 'bool'
     hdu[0].header['BMAJ'] = cf*beam
