@@ -1,7 +1,7 @@
 pd = 'path/to/parent' #path to parent directory
 cf = 1 #convolution factor
 savefits = False # whether to save the fits or not
-slice_data = False # whether to slice the data or not (if savefits == False)
+slice_image = False # whether to slice the image or not (if savefits == False)
 same_upperlower = False # whether to use the same upper and lower surface or not
 make_animation = True # whether to make an animation or not (if savefits == False)
 animation_velocityrange = 3 # velocity range (km/s) for the animation
