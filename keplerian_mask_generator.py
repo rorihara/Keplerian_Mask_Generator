@@ -10,13 +10,17 @@ from input_parameters import *
 from matplotlib.animation import FuncAnimation
 from matplotlib.animation import HTMLWriter
 
+print('Source: '+source['name'])
+
 # Check if fits will be saved
 if savefits == True:
     slice_data = False
     make_animation = False
+    print('Preparing...', end='', flush=True)
     savefitsname = source['fits'].split('.fits')[0]+'_keplerianmask.fits'
     if os.path.isfile(pd+savefitsname): os.remove(pd+savefitsname)
     shutil.copy(pd+source['fits'], pd+savefitsname)
+    print('Done.')
 
 # Constants and units
 G = C.G.cgs.value # Gravitational constant in cgs units (cm^3 g^-1 s^-2)
@@ -50,8 +54,6 @@ def circular_kernel(beam_pix):
 # Dilate masks to make them thicker
 def dilate_masks(masks, kernel):
     return [cv2.dilate(mask.astype(np.uint8), kernel, iterations=1) for mask in masks]
-
-print('Source: '+source['name'])
 
 # Load fits
 fitsfile = pd + source['fits']
