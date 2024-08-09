@@ -85,8 +85,8 @@ pa = source['pa']
 dRA = source['dRA']*dpc
 dDEC = source['dDEC']*dpc
 
-# Slice data (space)
-if slice_data == True:
+# Slice image (space)
+if slice_image == True:
     slice_arcsec = int(round(Rmax / dpc)) + 1
     ras = np.argmin((ra - slice_arcsec) ** 2)
     rae = np.argmin((ra + slice_arcsec) ** 2) + 1
