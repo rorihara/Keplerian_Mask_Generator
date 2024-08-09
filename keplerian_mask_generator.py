@@ -173,10 +173,13 @@ if savefits == True:
     with FITS.open(pd+savefitsname) as hduw:
         if header['NAXIS'] == 4: hduw[0].data = all_masks.astype(np.float32)[np.newaxis]
         elif header['NAXIS'] == 3: hduw[0].data = all_masks.astype(np.float32)
+        hduw[0].header['BUNIT'] = ''
         hduw[0].header['BMAJ'] = cf*beam
         hduw[0].header['BMIN'] = cf*beam
         hduw[0].header['BPA'] = 0
-        hduw.writeto(pd+savefitsname, overwrite=True)
+        del hduw[0].header['HISTORY']
+        if 'CASAMBM' in header: del hduw[0].header['CASAMBM']
+        hduw[0].writeto(pd+savefitsname, overwrite=True)
     print('Done.')
     print(pd+savefitsname+' was saved.')
 else:
