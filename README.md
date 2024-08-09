@@ -40,7 +40,7 @@ Before running `keplerian_mask_generator.py`, you need to set some input paramet
    - *Description*: Boolean flag indicating whether the generated mask should be saved as a FITS file.
    - *Values*: True (save the FITS file), False (do not save the FITS file, save as a npy file)
 - `slice_data`:
-   - *Description*: Boolean flag that determines if the data should be sliced. This is relevant only if savefits is set to False.
+   - *Description*: Boolean flag that determines if the image should be sliced. This is relevant only if savefits is set to False.
    - *Values*: True (slice the data), False (do not slice the data)
 - `same_upperlower`:
    - *Description*: Boolean flag indicating whether the same parameters should be used for both the upper and lower surfaces of the disk.
