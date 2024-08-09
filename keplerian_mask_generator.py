@@ -173,7 +173,6 @@ if savefits == True:
     with FITS.open(pd+savefitsname) as hduw:
         if header['NAXIS'] == 4: hduw[0].data = all_masks.astype(np.float32)[np.newaxis]
         elif header['NAXIS'] == 3: hduw[0].data = all_masks.astype(np.float32)
-        hduw[0].header['BUNIT'] = 'bool'
         hduw[0].header['BMAJ'] = cf*beam
         hduw[0].header['BMIN'] = cf*beam
         hduw[0].header['BPA'] = 0
