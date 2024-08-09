@@ -1,4 +1,5 @@
 import os
+import shutil
 import numpy as np
 import matplotlib.pyplot as plt
 import astropy.constants as C
@@ -15,7 +16,7 @@ if savefits == True:
     make_animation = False
     savefitsname = source['fits'].split('.fits')[0]+'_keplerianmask.fits'
     if os.path.isfile(pd+savefitsname): os.remove(pd+savefitsname)
-    os.system('cp '+pd+source['fits']+' '+pd+savefitsname)
+    shutil.copy(pd+source['fits'], pd+savefitsname)
 
 # Constants and units
 G = C.G.cgs.value # Gravitational constant in cgs units (cm^3 g^-1 s^-2)
