@@ -15,6 +15,7 @@ if savefits == True:
     make_animation = False
     savefitsname = source['fits'].split('.fits')[0]+'_keplerianmask.fits'
     if os.path.isfile(pd+savefitsname): os.remove(pd+savefitsname)
+    os.system('cp '+pd+source['fits']+' '+pd+savefitsname)
 
 # Constants and units
 G = C.G.cgs.value # Gravitational constant in cgs units (cm^3 g^-1 s^-2)
@@ -166,13 +167,14 @@ print('Done.')
 # Save fits or npy
 if savefits == True:
     print('Saving fits...', end='', flush=True)
-    if header['NAXIS'] == 4: hdu[0].data = all_masks.astype(np.uint8)[np.newaxis]
-    elif header['NAXIS'] == 3: hdu[0].data = all_masks.astype(np.uint8)
-    hdu[0].header['BUNIT'] = 'bool'
-    hdu[0].header['BMAJ'] = cf*beam
-    hdu[0].header['BMIN'] = cf*beam
-    hdu[0].header['BPA'] = 0
-    hdu.writeto(pd+savefitsname, overwrite=True)
+    with FITS.open(pd+savefitsname) as hduw:
+        if header['NAXIS'] == 4: hduw[0].data = all_masks.astype(np.uint8)[np.newaxis]
+        elif header['NAXIS'] == 3: hduw[0].data = all_masks.astype(np.uint8)
+        hduw[0].header['BUNIT'] = 'bool'
+        hduw[0].header['BMAJ'] = cf*beam
+        hduw[0].header['BMIN'] = cf*beam
+        hduw[0].header['BPA'] = 0
+        hduw.writeto(pd+savefitsname, overwrite=True)
     print('Done.')
     print(pd+savefitsname+' was saved.')
 else:
