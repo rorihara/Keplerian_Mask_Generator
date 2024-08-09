@@ -14,8 +14,7 @@ if savefits == True:
     slice_data = False
     make_animation = False
     savefitsname = source['fits'].split('.fits')[0]+'_keplerianmask.fits'
-    os.system('rm '+pd+savefitsname)
-    os.system('cp '+pd+source['fits']+' '+pd+savefitsname)
+    os.remove(pd+savefitsname)
 
 # Constants and units
 G = C.G.cgs.value # Gravitational constant in cgs units (cm^3 g^-1 s^-2)
