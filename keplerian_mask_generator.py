@@ -14,7 +14,7 @@ print('Source: '+source['name'])
 
 # Check if fits will be saved
 if savefits == True:
-    slice_data = False
+    slice_image = False
     make_animation = False
     print('Preparing...', end='', flush=True)
     savefitsname = source['fits'].split('.fits')[0]+'_keplerianmask.fits'
