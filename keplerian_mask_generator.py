@@ -171,8 +171,8 @@ print('Done.')
 if savefits == True:
     print('Saving fits...', end='', flush=True)
     with FITS.open(pd+savefitsname) as hduw:
-        if header['NAXIS'] == 4: hduw[0].data = all_masks.astype(np.uint8)[np.newaxis]
-        elif header['NAXIS'] == 3: hduw[0].data = all_masks.astype(np.uint8)
+        if header['NAXIS'] == 4: hduw[0].data = all_masks.astype(np.float32)[np.newaxis]
+        elif header['NAXIS'] == 3: hduw[0].data = all_masks.astype(np.float32)
         hduw[0].header['BUNIT'] = 'bool'
         hduw[0].header['BMAJ'] = cf*beam
         hduw[0].header['BMIN'] = cf*beam
