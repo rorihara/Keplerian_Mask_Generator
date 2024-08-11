@@ -95,7 +95,7 @@ where:
 - $p$ and $q$ are the power law indices for the linewidth as functions of radius and height, respectively. (Dictionary Keys: `['p']`, `['q']`)
 
 ## Output
-- If `savefits` is True, the masks will be saved as a FITS file.
+- If `savefits` is True, the masks will be saved as a FITS file. If you use a mask in CASA, please convert it to an .image format using `importfits` before applying it.
 - If `savefits` is False, the masks will be saved as a npy file.
 - If `make_animation` is True, an animation will be created and saved as an HTML file.
 
