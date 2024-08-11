@@ -95,7 +95,7 @@ with FITS.open(fitsfile) as hdu:
     indlist = np.arange(0, imsize)
     ra = -(indlist - imc) * pix
     dec = (indlist - imc) * pix
-    print('FITS Type: '+str(fitstype)+' (' +fitslist[fitstype]+ ')')
+    print('FITS Type: '+str(fitstype)+' ' +fitslist[fitstype])
 
 # Load source params
 M = source['Mstar'] * (U.M_sun).to(U.g) 
