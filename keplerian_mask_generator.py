@@ -59,8 +59,32 @@ def dilate_masks(masks, kernel):
 fitsfile = pd + source['fits']
 with FITS.open(fitsfile) as hdu:
     header = hdu[0].header
-    if header['NAXIS'] == 4: data = hdu[0].data[0]
-    elif header['NAXIS'] == 3: data = hdu[0].data
+    restfreq = header['RESTFRQ'] # Rest frequency
+    fitslist = {0:'[RA,DEC,FREQ,STOKES]', 1:'[RA,DEC,STOKES,FREQ]', 2:'[RA,DEC,FREQ]'}
+    if header['NAXIS'] == 4:
+        if header['CTYPE3'] == 'FREQ':
+            fitstype = 0
+            header['CRVAL3'], header['CRVAL4'] = header['CRVAL4'], header['CRVAL3']
+            header['CDELT3'], header['CDELT4'] = header['CDELT4'], header['CDELT3']
+            header['CTYPE3'], header['CTYPE4'] = header['CTYPE4'], header['CTYPE3']
+            header['NAXIS3'], header['NAXIS4'] = header['NAXIS4'], header['NAXIS3']
+            header['CRPIX3'], header['CRPIX4'] = header['CRPIX4'], header['CRPIX3']
+            header['CUNIT3'], header['CUNIT4'] = header['CUNIT4'], header['CUNIT3']
+            data = hdu[0].data[0]
+        else:
+            fitstype = 1
+            data = hdu[0].data[:,0]
+        f_start = header['CRVAL4'] # frequency of the first channel
+        df = header['CDELT4'] # channel width
+        nf = header['NAXIS4'] # number of channels
+        cw = np.abs(header['CDELT4']*clight/restfreq)/km2cm # Channel width in km/s
+    elif header['NAXIS'] == 3:
+        fitstype = 2
+        data = hdu[0].data
+        f_start = header['CRVAL3'] # frequency of the first channel
+        df = header['CDELT3'] # channel width
+        nf = header['NAXIS3'] # number of channels
+        cw = np.abs(header['CDELT3']*clight/restfreq)/km2cm # Channel width in km/s
     pix = header['CDELT2'] * deg2arcsec # Pixel size
     imsize = header['NAXIS1'] # Image size
     if 'CASAMBM' in header:
@@ -71,8 +95,7 @@ with FITS.open(fitsfile) as hdu:
     indlist = np.arange(0, imsize)
     ra = -(indlist - imc) * pix
     dec = (indlist - imc) * pix
-    restfreq = header['RESTFRQ'] # Rest frequency
-    cw = np.abs(header['CDELT3']*clight/restfreq)/km2cm # Channel width in km/s
+    print('FITS Type: '+str(fitstype)+' (' +fitslist[fitstype]+ ')')
 
 # Load source params
 M = source['Mstar'] * (U.M_sun).to(U.g) 
@@ -103,9 +126,6 @@ grid_ra = np.append(ra+pix/2, np.min(ra-pix/2))
 grid_dec = np.append(dec-pix/2, np.max(dec+pix/2))
 
 # Load velocity axis
-f_start = header['CRVAL3'] # frequency of the first channel
-df = header['CDELT3'] # channel width
-nf = header['NAXIS3'] # number of channels
 f_list = np.linspace(f_start, f_start+df*nf, nf)
 vel_list = clight*(restfreq-f_list)/restfreq/km2cm
 vel_list_vsys = vel_list - Vsys
@@ -171,8 +191,18 @@ print('Done.')
 if savefits == True:
     print('Saving fits...', end='', flush=True)
     with FITS.open(pd+savefitsname) as hduw:
-        if header['NAXIS'] == 4: hduw[0].data = all_masks.astype(np.float32)[np.newaxis]
-        elif header['NAXIS'] == 3: hduw[0].data = all_masks.astype(np.float32)
+        if fitstype == 0:
+            hduw[0].data = all_masks.astype(np.float32)[:,np.newaxis]
+            hduw[0].header['CRVAL3'], hduw[0].header['CRVAL4'] = header['CRVAL3'], header['CRVAL4']
+            hduw[0].header['CDELT3'], hduw[0].header['CDELT4'] = header['CDELT3'], header['CDELT4']
+            hduw[0].header['CTYPE3'], hduw[0].header['CTYPE4'] = header['CTYPE3'], header['CTYPE4']
+            hduw[0].header['NAXIS3'], hduw[0].header['NAXIS4'] = header['NAXIS3'], header['NAXIS4']
+            hduw[0].header['CRPIX3'], hduw[0].header['CRPIX4'] = header['CRPIX3'], header['CRPIX4']
+            hduw[0].header['CUNIT3'], hduw[0].header['CUNIT4'] = header['CUNIT3'], header['CUNIT4']
+        elif fitstype == 1:
+            hduw[0].data = all_masks.astype(np.float32)[:,np.newaxis]
+        elif fitstype == 2:
+            hduw[0].data = all_masks.astype(np.float32)
         hduw[0].header['BUNIT'] = ''
         hduw[0].header['BMAJ'] = cf*beam / deg2arcsec
         hduw[0].header['BMIN'] = cf*beam / deg2arcsec
