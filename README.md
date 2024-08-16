@@ -63,7 +63,7 @@ The source dictionary contains the following parameters:
 - `['vsys']`: Systemic velocity of the disk (km/s).
 - `['incl']`: Inclination angle of the disk (deg).
 - `['pa']`: Position angle of the disk (deg).
-- `['vel_sign']`: Sign of the velocity (1 for approaching, -1 for receding).
+- `['vel_sign']`: Sign of the velocity (1 for clockwise, -1 for counterclockwise).
 - `['Rout']`: Outer radius of the disk (au).
 - `['dRA']`: Offset in RA (arcsec).
 - `['dDEC']`: Offset in DEC (arcsec).
