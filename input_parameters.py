@@ -14,7 +14,7 @@ source = {
     'vsys':5.0, # velocity of the system (km/s)
     'incl':30, # inclination (deg)
     'pa':30, # position angle (deg)
-    'vel_sign':1, # 1 for counterclockwise, -1 for clockwise
+    'vel_sign':1, # 1 for clockwise, -1 for counterclockwise
     'Rout':500, # disk radius (au)
     'dRA':0.0, # offset in RA (arcsec)
     'dDEC':0.0, # offset in DEC (arcsec)
