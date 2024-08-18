@@ -11,7 +11,7 @@ cd Keplerian_Mask_Generator
 pip install .
 
 2. After installation, please run the script as shown in `example_run.py`.
-
+```
 
 ## Required Libraries
 
