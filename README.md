@@ -23,10 +23,7 @@ To run this script, you need the following Python libraries:
 - `astropy`
 - `cv2` (OpenCV)
 
-Install the required libraries using the following command:
-```bash
-pip install numpy matplotlib astropy opencv-python
-```
+These libraries will also be installed automatically when you install this package.
 
 ## Input Parameters
 
