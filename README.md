@@ -27,7 +27,8 @@ These libraries will also be installed automatically when you install this packa
 
 ## Input Parameters
 
-Before running `keplerian_mask_generator.py`, you need to set some input parameters in `input_parameters.py`.  Here is a detailed description of each parameter and the corresponding dictionary key:
+### Config parameters
+The config dictionary contains the following parameters:
 
 - `pd`:
    - *Description*: Path to the directory containing the input FITS file.
@@ -38,15 +39,15 @@ Before running `keplerian_mask_generator.py`, you need to set some input paramet
 - `cf`:
    - *Description*: Factor used to convolve the data. This parameter adjusts the smoothing applied to the data.
    - *Example*: 1.0 (beam size)
-
 - `same_upperlower`:
    - *Description*: Boolean flag indicating whether the same parameters should be used for both the upper and lower surfaces of the disk.
    - *Values*: True (use the same parameters for both surfaces), False (use different parameters for each surface)
 
+### Generate options
+
 - `slice_image`:
    - *Description*: Boolean flag that determines if the image should be sliced. This is relevant only if savefits is set to False.
    - *Values*: True (slice the data), False (do not slice the data)
-
 - `save_fits`:
    - *Description*: Boolean flag indicating whether the generated mask should be saved as a FITS file. This is relevant only if slice_image is set to False.
    - *Values*: True (save the FITS file), False (do not save the FITS file)
