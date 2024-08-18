@@ -4,7 +4,7 @@ from astropy.io import fits as FITS
 from .functions import *
 
 class LoadFits:
-    def __init__(self, config, source, slice_image):
+    def __init__(self, config, source):
         globals().update(config)
         globals().update(source)
        
