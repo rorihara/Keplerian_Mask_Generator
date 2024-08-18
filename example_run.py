@@ -32,10 +32,9 @@ source = {
     'q':-0.5 # power law index for the linewidth as a function of height
     }
 
-# Initialize the generator
-kmg = KMG(config, source)
 # Gnerate the masks
-kmg.generate_mask()
+kmg = KMG(config, source)
+
 # Save the masks
 kmg.save_mask(save_fits=True, save_npy=True, save_animation=True, vrange=3) # vrange: the velocity range for animation (e.g., -3 km/s to 3 km/s)
 
