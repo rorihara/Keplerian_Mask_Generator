@@ -1,15 +1,17 @@
-# keplerian_mask_generator.py
+# KeplerianMaskGenerator
 
 This tool generates Keplerian masks for data cubes of protoplanetary disks, optionally saves them in FITS or NPY formats, and creates animations of the data with overlaid masks. It is designed to handle FITS files and allows customization of various parameters related to the disk properties.
 
-## How to Run
+## How to Use
 
-1. Install the required libraries.
-2. Set the input parameters in the `input_parameters.py` script.
-3. Run the `keplerian_mask_generator.py` script.
+1. To install the package, run:
 ```bash
-python keplerian_mask_generator.py
-```
+git clone https://github.com/andizq/discminer.git
+cd Keplerian_Mask_Generator
+pip install .
+
+2. After installation, please run the script as shown in `example_run.py`.
+
 
 ## Required Libraries
 
