@@ -48,16 +48,16 @@ Before running `keplerian_mask_generator.py`, you need to set some input paramet
    - *Values*: True (slice the data), False (do not slice the data)
 
 - `save_fits`:
-   - *Description*: Boolean flag indicating whether the generated mask should be saved as a FITS file.
+   - *Description*: Boolean flag indicating whether the generated mask should be saved as a FITS file. This is relevant only if slice_image is set to False.
    - *Values*: True (save the FITS file), False (do not save the FITS file)
 - `save_npy`:
    - *Description*: Boolean flag indicating whether the generated mask should be saved as a NPY file.
    - *Values*: True (save the NPY file), False (do not save the NPY file)
 - `save_animation`:
-   - *Description*: Boolean flag indicating whether an animation of the mask should be created. This is relevant only if savefits is set to False.
+   - *Description*: Boolean flag indicating whether an animation of the mask should be created. 
    - *Values*: True (create an animation), False (do not create an animation)
 - `vrange`:
-   - *Description*: Velocity range for the animation, specified as a maximum value in km/s.
+   - *Description*: Velocity range for the animation, specified as a maximum value in km/s. This is relevant only if save_animation is set to True.
    - *Example*: 3 (create an animation for velocities from -3 km/s to 3 km/s)
 
 ### Source parameters
