@@ -68,6 +68,6 @@ class MakeMask:
     def convolved_masks(self):
         beam_pix = cf*int(self.beam/self.pix) # beam in pixels
         kernel = circular_kernel(beam_pix) # circular kernel
-        self.u_masks_conv = dilate_masks(self.u_masks, kernel)
-        self.l_masks_conv = dilate_masks(self.l_masks, kernel)
+        self.u_masks_conv = dilate_masks(self.u_masks, kernel) > 0
+        self.l_masks_conv = dilate_masks(self.l_masks, kernel) > 0
         self.all_masks = (np.array(self.u_masks_conv) + np.array(self.l_masks_conv)) > 0
