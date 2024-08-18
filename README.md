@@ -9,9 +9,9 @@ This tool generates Keplerian masks for data cubes of protoplanetary disks, opti
 git clone https://github.com/andizq/discminer.git
 cd Keplerian_Mask_Generator
 pip install .
-
-2. After installation, please run the script as shown in `example_run.py`.
 ```
+2. After installation, please run the script as shown in `example_run.py`.
+
 
 ## Required Libraries
 
