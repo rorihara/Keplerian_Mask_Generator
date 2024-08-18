@@ -92,7 +92,8 @@ where:
 - `slice_image`:
    - *Description*: Boolean flag that determines if the image should be sliced. This is relevant only if savefits is set to False.
    - *Values*: True (slice the data), False (do not slice the data)
-#### return
+
+#### Returns
 1. data: The original or sliced image array.
 2. all_mask: A boolean array that combines both the upper surface and lower surface masks.
 3. upper_mask: A boolean array representing only the upper surface mask.
