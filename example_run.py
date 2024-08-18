@@ -40,4 +40,5 @@ kmg.save_outputs(save_fits=True, save_npy=True, save_animation=True, vrange=3) #
 
 # If using the mask in CASA, convert the FITS to CASA format.
 # In CASA
-# importfits(fitsimage = 'xxx_keplerianmask.fits', imagename = 'xxx_keplerianmask.image', overwrite = True)
+# fitsimage = 'xxx_keplerianmask.fits'
+# importfits(fitsimage = fitsimage, imagename = fitsimage.split('.fits')[0]+'.image', overwrite = True)
