@@ -6,6 +6,7 @@ class generator:
     def __init__(self, config, source):
         self.config = config
         self.source = source
+        self.generate_mask()
 
     def generate_mask(self):
         self.__loadfits = LoadFits(self.config, self.source)
