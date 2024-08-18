@@ -30,16 +30,16 @@ These libraries will also be installed automatically when you install this packa
 ### Config parameters
 The config dictionary contains the following parameters:
 
-- `pd`:
+- `['pd']`:
    - *Description*: Path to the directory containing the input FITS file.
    - *Example*: '/path/to/parent/directory/'
-- `fits`:
+- `['fits']`:
    - *Description*: Name of the FITS file.
    - *Example*: 'xxx.fits'
-- `cf`:
+- `['cf']`:
    - *Description*: Factor used to convolve the data. This parameter adjusts the smoothing applied to the data.
    - *Example*: 1.0 (beam size)
-- `same_upperlower`:
+- `['same_upperlower']`:
    - *Description*: Boolean flag indicating whether the same parameters should be used for both the upper and lower surfaces of the disk.
    - *Values*: True (use the same parameters for both surfaces), False (use different parameters for each surface)
 
