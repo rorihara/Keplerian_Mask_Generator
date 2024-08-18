@@ -11,6 +11,7 @@ class generator:
         self.slice_image = slice_image
         self.loadfits = LoadFits(self.config, self.source, self.slice_image)
         self.makemask = MakeMask(self.config, self.source, self.loadfits)
+        return self.loadfits.data, self.makemask.all_masks, self.makemask.u_masks_conv, self.makemask.l_masks_conv
 
     def save_mask(self, save_fits, save_npy, save_animation, vrange=3):
         masksaver = MaskSaver(self.config, self.source, self.makemask)
