@@ -34,7 +34,7 @@ source = {
 # Initialize the generator
 kmg = KMG(config, source)
 # Gnerate the masks
-mask_arrays = kmg.generate_mask(slice_image=False) # outputs: (data, upper + lower surface mask, upper surface mask, lower surface mask)
+data, all_mask, upper_mask, lower_mask = kmg.generate_mask(slice_image=False)
 # Save the masks
 kmg.save_outputs(save_fits=True, save_npy=True, save_animation=True, vrange=3) # vrange: the velocity range for animation (e.g., -3 km/s to 3 km/s)
 
