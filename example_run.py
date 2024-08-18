@@ -1,9 +1,9 @@
 from KeplerianMaskGenerator import generator as KMG
 
 config = {
-        'pd': '/Volumes/Extreme_SSD/obs_data/ALMA/MAPS/HD163296/casa_space/', # path to parent directory of FITS file
-        'fits':'test.fits', # FITS file
-        'cf': 1, #convolution factor
+        'pd': '/Volumes/Extreme_SSD/obs_data/ALMA/MAPS/HD163296/casa_space/', # Path to parent directory of FITS file
+        'fits':'test.fits', # Name of FITS file
+        'cf': 1, # Convolution factor
         'same_upperlower': False, # whether to use the same upper and lower surface or not
         }
 
@@ -32,8 +32,8 @@ source = {
     }
 
 # Initialize the generator
-gen = KMG(config, source)
+kmg = KMG(config, source)
 # Gnerate the masks
-mask_arrays = gen.generate_mask(slice_image=False) # outputs: upper surface, lower surface, upper + lower surface
+mask_arrays = kmg.generate_mask(slice_image=False) # outputs: upper surface, lower surface, upper + lower surface
 # Save the masks
-gen.save_outputs(save_fits=True, save_npy=True, save_animation=True, vrange=3)
+kmg.save_outputs(save_fits=True, save_npy=True, save_animation=True, vrange=3) # vrange: 
