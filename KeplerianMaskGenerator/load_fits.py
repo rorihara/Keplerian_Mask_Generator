@@ -69,6 +69,7 @@ class LoadFits:
         self.data = self.data[:, decs:dece, ras:rae]
 
     def pix2grid(self):
+        print('slice_image: '+str(slice_image))
         print('Data shape: '+str(self.data.shape))
         self.grid_ra = np.append(self.ra + self.pix/2, np.min(self.ra - self.pix/2))
         self.grid_dec = np.append(self.dec - self.pix/2, np.max(self.dec + self.pix/2))
