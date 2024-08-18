@@ -42,6 +42,9 @@ The config dictionary contains the following parameters:
 - `['same_upperlower']`:
    - *Description*: Boolean flag indicating whether the same parameters should be used for both the upper and lower surfaces of the disk.
    - *Values*: True (use the same parameters for both surfaces), False (use different parameters for each surface)
+- `['slice_image']`:
+   - *Description*: Boolean flag that determines if the image should be sliced. This is relevant only if save_fits is set to False.
+   - *Values*: True (slice the data), False (do not slice the data)
 
 ### Source parameters
 The source dictionary contains the following parameters:
@@ -88,11 +91,6 @@ where:
 
 ### `generate_mask`
 This function generates a mask based on the provided image data.
-
-#### Option
-- `slice_image`:
-   - *Description*: Boolean flag that determines if the image should be sliced. This is relevant only if savefits is set to False.
-   - *Values*: True (slice the data), False (do not slice the data)
 
 ### `save_mask`
 This function saves the generated mask in different formats (FITS, NPY) or creates an animation of the mask based on the specified options.
