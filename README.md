@@ -87,19 +87,15 @@ where:
 ## Functions
 
 ### `generate_mask`
+This function generates a mask based on the provided image data.
 
 #### Option
 - `slice_image`:
    - *Description*: Boolean flag that determines if the image should be sliced. This is relevant only if savefits is set to False.
    - *Values*: True (slice the data), False (do not slice the data)
 
-#### Returns
-1. data: The original or sliced image array.
-2. all_mask: A boolean array that combines both the upper surface and lower surface masks.
-3. upper_mask: A boolean array representing only the upper surface mask.
-4. lower_mask: A boolean array representing only the lower surface mask.
-
 ### `save_mask`
+This function saves the generated mask in different formats (FITS, NPY) or creates an animation of the mask based on the specified options.
 
 #### Options
 - `save_fits`:
@@ -119,6 +115,15 @@ where:
 - If `save_fits` is True, the masks are saved as a FITS file. Please note that `slice_image` must be set to False; otherwise, the FITS file will not be saved. If you use a mask in CASA, please convert it to CASA image format using the `importfits` task in the CASA tools before applying it. If the number of axes in the FITS data is four, they are ordered as [RA, DEC, STOKES, FREQ].
 - If `save_npy` is True, the masks will be saved as a npy file.
 - If `save_animation` is True, an animation will be created and saved as an HTML file.
+
+#### Instance variable
+- `.data`: The original or sliced image array.
+- `.ra`: The right ascension (RA) list.
+- `.dec`: The declination (DEC) list.
+- `.vel`: The velocity list (km/s).
+- `.all_mask`: A boolean array that combines both the upper surface and lower surface masks.
+- `.upper_mask`: A boolean array representing only the upper surface mask.
+- `.lower_mask`: A boolean array representing only the lower surface mask.
 
 ### Author
 Ryuta Orihara (email: roriharaiba@gmail.com)
