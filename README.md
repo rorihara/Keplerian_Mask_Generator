@@ -87,10 +87,7 @@ where:
 - $h$ is the height of the emitting surface.
 - $p$ and $q$ are the power law indices for the linewidth as functions of radius and height, respectively. (Dictionary Keys: `['p']`, `['q']`)
 
-## Functions
-
-### `generate_mask`
-This function generates a mask based on the provided image data.
+## Function
 
 ### `save_mask`
 This function saves the generated mask in different formats (FITS, NPY) or creates an animation of the mask based on the specified options.
