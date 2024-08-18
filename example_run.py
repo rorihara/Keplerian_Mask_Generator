@@ -38,13 +38,16 @@ kmg.generate_mask(slice_image=False)
 # Save the masks
 kmg.save_mask(save_fits=True, save_npy=True, save_animation=True, vrange=3) # vrange: the velocity range for animation (e.g., -3 km/s to 3 km/s)
 
-data = kmg.data
-ra = kmg.ra
-dec = kmg.dec
-vel = kmg.vel
-all_mask = kmg.all_mask
-upper_mask = kmg.upper_mask
-lower_mask = kmg.lower_mask
+# Optional ====================================================
+
+# Retrieve the processed data and masks from the KMG instance
+data = kmg.data # The original or sliced image array.
+ra = kmg.ra # The right ascension (RA) list.
+dec = kmg.dec # The declination (DEC) list.
+vel = kmg.vel # The Vlsr list (km/s).
+all_mask = kmg.all_mask # A boolean array that combines both the upper surface and lower surface masks.
+upper_mask = kmg.upper_mask # A boolean array representing only the upper surface mask.
+lower_mask = kmg.lower_mask # A boolean array representing only the lower surface mask.
 
 # If using the mask in CASA, convert the FITS to CASA format.
 # In CASA
