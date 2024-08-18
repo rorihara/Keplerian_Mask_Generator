@@ -103,7 +103,7 @@ where:
 - $p$ and $q$ are the power law indices for the linewidth as functions of radius and height, respectively. (Dictionary Keys: `['p']`, `['q']`)
 
 ## Output
-- If `save_fits` is True, the masks are saved as a FITS file. Please note that slice_image must be set to False; otherwise, the FITS file will not be saved. If you use a mask in CASA, please convert it to CASA image format using the `importfits` task in the CASA tools before applying it. If the number of axes in the FITS data is four, they are ordered as [RA, DEC, STOKES, FREQ].
+- If `save_fits` is True, the masks are saved as a FITS file. Please note that `slice_image` must be set to False; otherwise, the FITS file will not be saved. If you use a mask in CASA, please convert it to CASA image format using the `importfits` task in the CASA tools before applying it. If the number of axes in the FITS data is four, they are ordered as [RA, DEC, STOKES, FREQ].
 - If `save_npy` is True, the masks will be saved as a npy file.
 - If `make_animation` is True, an animation will be created and saved as an HTML file.
 
