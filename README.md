@@ -6,7 +6,7 @@ This tool generates Keplerian masks for data cubes of protoplanetary disks, opti
 
 1. To install the package, run:
 ```bash
-git clone https://github.com/andizq/discminer.git
+git clone https://github.com/rorihara/Keplerian_Mask_Generator.git
 cd Keplerian_Mask_Generator
 pip install .
 ```
