@@ -84,7 +84,7 @@ class MaskSaver:
             ax[0].imshow(self.data[chan], origin='lower', cmap='inferno', extent=extent)
             ax[1].imshow(self.data[chan], origin='lower', cmap='inferno', extent=extent)
             ax[1].contour(self.u_masks_conv[chan], levels=[0.5], colors=['w'], extent=extent)
-            ax[1].contour(self.l_masks_conv[chan] - (self.u_masks_conv[chan]*self.l_masks_conv[chan]) , levels=[0.5], colors=['w'], alpha=[0.5], extent=extent)
+            ax[1].contour(self.all_masks[chan] ^ self.u_masks_conv[chan], levels=[0.5], colors=['w'], alpha=[0.5], extent=extent)
             ax[0].set_title('Vlsr='+str(round(self.vel_list[chan],2))+' km/s (Vsys='+str(round(Vsys,2))+' km/s)')
             ax[1].set_title(str(cf)+'beam conv.')
             
