@@ -34,9 +34,17 @@ source = {
 # Initialize the generator
 kmg = KMG(config, source)
 # Gnerate the masks
-data, all_mask, upper_mask, lower_mask = kmg.generate_mask(slice_image=False)
+kmg.generate_mask(slice_image=False)
 # Save the masks
 kmg.save_mask(save_fits=True, save_npy=True, save_animation=True, vrange=3) # vrange: the velocity range for animation (e.g., -3 km/s to 3 km/s)
+
+data = kmg.data
+ra = kmg.ra
+dec = kmg.dec
+vel = kmg.vel
+all_mask = kmg.all_mask
+upper_mask = kmg.upper_mask
+lower_mask = kmg.lower_mask
 
 # If using the mask in CASA, convert the FITS to CASA format.
 # In CASA
