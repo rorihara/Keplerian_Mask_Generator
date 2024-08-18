@@ -43,24 +43,6 @@ The config dictionary contains the following parameters:
    - *Description*: Boolean flag indicating whether the same parameters should be used for both the upper and lower surfaces of the disk.
    - *Values*: True (use the same parameters for both surfaces), False (use different parameters for each surface)
 
-### Generate options
-
-- `slice_image`:
-   - *Description*: Boolean flag that determines if the image should be sliced. This is relevant only if savefits is set to False.
-   - *Values*: True (slice the data), False (do not slice the data)
-- `save_fits`:
-   - *Description*: Boolean flag indicating whether the generated mask should be saved as a FITS file. This is relevant only if slice_image is set to False.
-   - *Values*: True (save the FITS file), False (do not save the FITS file)
-- `save_npy`:
-   - *Description*: Boolean flag indicating whether the generated mask should be saved as a NPY file.
-   - *Values*: True (save the NPY file), False (do not save the NPY file)
-- `save_animation`:
-   - *Description*: Boolean flag indicating whether an animation of the mask should be created. 
-   - *Values*: True (create an animation), False (do not create an animation)
-- `vrange`:
-   - *Description*: Velocity range for the animation, specified as a maximum value in km/s. This is relevant only if save_animation is set to True.
-   - *Example*: 3 (create an animation for velocities from -3 km/s to 3 km/s)
-
 ### Source parameters
 The source dictionary contains the following parameters:
 
@@ -101,6 +83,24 @@ where:
 - $r$ is the radial distance from the center of the disk.
 - $h$ is the height of the emitting surface.
 - $p$ and $q$ are the power law indices for the linewidth as functions of radius and height, respectively. (Dictionary Keys: `['p']`, `['q']`)
+
+### Generate options
+
+- `slice_image`:
+   - *Description*: Boolean flag that determines if the image should be sliced. This is relevant only if savefits is set to False.
+   - *Values*: True (slice the data), False (do not slice the data)
+- `save_fits`:
+   - *Description*: Boolean flag indicating whether the generated mask should be saved as a FITS file. This is relevant only if slice_image is set to False.
+   - *Values*: True (save the FITS file), False (do not save the FITS file)
+- `save_npy`:
+   - *Description*: Boolean flag indicating whether the generated mask should be saved as a NPY file.
+   - *Values*: True (save the NPY file), False (do not save the NPY file)
+- `save_animation`:
+   - *Description*: Boolean flag indicating whether an animation of the mask should be created. 
+   - *Values*: True (create an animation), False (do not create an animation)
+- `vrange`:
+   - *Description*: Velocity range for the animation, specified as a maximum value in km/s. This is relevant only if save_animation is set to True.
+   - *Example*: 3 (create an animation for velocities from -3 km/s to 3 km/s)
 
 ## Output
 - If `save_fits` is True, the masks are saved as a FITS file. Please note that `slice_image` must be set to False; otherwise, the FITS file will not be saved. If you use a mask in CASA, please convert it to CASA image format using the `importfits` task in the CASA tools before applying it. If the number of axes in the FITS data is four, they are ordered as [RA, DEC, STOKES, FREQ].
