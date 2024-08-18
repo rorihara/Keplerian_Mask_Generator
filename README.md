@@ -116,7 +116,7 @@ This function saves the generated mask in different formats (FITS, NPY) or creat
 - If `save_npy` is True, the masks will be saved as a npy file.
 - If `save_animation` is True, an animation will be created and saved as an HTML file.
 
-## Instance variable
+## Optional: Instance variables
 - `.data`: The original or sliced image array.
 - `.ra`: The right ascension (RA) list.
 - `.dec`: The declination (DEC) list.
