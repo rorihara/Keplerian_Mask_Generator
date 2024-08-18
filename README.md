@@ -84,11 +84,23 @@ where:
 - $h$ is the height of the emitting surface.
 - $p$ and $q$ are the power law indices for the linewidth as functions of radius and height, respectively. (Dictionary Keys: `['p']`, `['q']`)
 
-### Generate options
+## Functions
 
+### `generate_mask`
+
+#### Option
 - `slice_image`:
    - *Description*: Boolean flag that determines if the image should be sliced. This is relevant only if savefits is set to False.
    - *Values*: True (slice the data), False (do not slice the data)
+#### return
+1. data: The original or sliced image array.
+2. all_mask: A boolean array that combines both the upper surface and lower surface masks.
+3. upper_mask: A boolean array representing only the upper surface mask.
+4. lower_mask: A boolean array representing only the lower surface mask.
+
+### `save_mask`
+
+#### Options
 - `save_fits`:
    - *Description*: Boolean flag indicating whether the generated mask should be saved as a FITS file. This is relevant only if slice_image is set to False.
    - *Values*: True (save the FITS file), False (do not save the FITS file)
@@ -102,7 +114,7 @@ where:
    - *Description*: Velocity range for the animation, specified as a maximum value in km/s. This is relevant only if save_animation is set to True.
    - *Example*: 3 (create an animation for velocities from -3 km/s to 3 km/s)
 
-## Output
+#### Outputs
 - If `save_fits` is True, the masks are saved as a FITS file. Please note that `slice_image` must be set to False; otherwise, the FITS file will not be saved. If you use a mask in CASA, please convert it to CASA image format using the `importfits` task in the CASA tools before applying it. If the number of axes in the FITS data is four, they are ordered as [RA, DEC, STOKES, FREQ].
 - If `save_npy` is True, the masks will be saved as a npy file.
 - If `save_animation` is True, an animation will be created and saved as an HTML file.
