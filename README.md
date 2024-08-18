@@ -30,36 +30,44 @@ These libraries will also be installed automatically when you install this packa
 Before running `keplerian_mask_generator.py`, you need to set some input parameters in `input_parameters.py`.  Here is a detailed description of each parameter and the corresponding dictionary key:
 
 - `pd`:
-   - *Description*: File path to the directory containing the input data and where the output will be saved.
+   - *Description*: Path to the directory containing the input FITS file.
    - *Example*: '/path/to/parent/directory/'
+- `fits`:
+   - *Description*: Name of the FITS file.
+   - *Example*: 'xxx.fits'
 - `cf`:
    - *Description*: Factor used to convolve the data. This parameter adjusts the smoothing applied to the data.
    - *Example*: 1.0 (beam size)
-- `savefits`:
-   - *Description*: Boolean flag indicating whether the generated mask should be saved as a FITS file.
-   - *Values*: True (save the FITS file), False (do not save the FITS file, save as a npy file)
-- `slice_image`:
-   - *Description*: Boolean flag that determines if the image should be sliced. This is relevant only if savefits is set to False.
-   - *Values*: True (slice the data), False (do not slice the data)
+
 - `same_upperlower`:
    - *Description*: Boolean flag indicating whether the same parameters should be used for both the upper and lower surfaces of the disk.
    - *Values*: True (use the same parameters for both surfaces), False (use different parameters for each surface)
-- `make_animation`:
+
+- `slice_image`:
+   - *Description*: Boolean flag that determines if the image should be sliced. This is relevant only if savefits is set to False.
+   - *Values*: True (slice the data), False (do not slice the data)
+
+- `save_fits`:
+   - *Description*: Boolean flag indicating whether the generated mask should be saved as a FITS file.
+   - *Values*: True (save the FITS file), False (do not save the FITS file)
+- `save_npy`:
+   - *Description*: Boolean flag indicating whether the generated mask should be saved as a NPY file.
+   - *Values*: True (save the NPY file), False (do not save the NPY file)
+- `save_animation`:
    - *Description*: Boolean flag indicating whether an animation of the mask should be created. This is relevant only if savefits is set to False.
    - *Values*: True (create an animation), False (do not create an animation)
-- `animation_velocityrange`:
+- `vrange`:
    - *Description*: Velocity range for the animation, specified as a maximum value in km/s.
    - *Example*: 3 (create an animation for velocities from -3 km/s to 3 km/s)
 
-### Disk Model
+### Source parameters
 The source dictionary contains the following parameters:
 
 #### Basic Information
 - `['name']`: Source name.
-- `['fits']`: Name of the FITS file.
 - `['dpc']`: Distance to the source (pc).
-- `['Mstar']`: Mass of the central star in solar masses.
-- `['vsys']`: Systemic velocity of the disk (km/s).
+- `['Ms']`: Mass of the central star in solar masses.
+- `['Vsys']`: Systemic velocity of the disk (km/s).
 - `['incl']`: Inclination angle of the disk (deg).
 - `['pa']`: Position angle of the disk (deg).
 - `['vel_sign']`: Sign of the velocity (1 for clockwise, -1 for counterclockwise).
