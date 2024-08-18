@@ -4,7 +4,8 @@ config = {
         'pd': '/path/to/directory/', # Path to parent directory of FITS file
         'fits':'xxx.fits', # Name of FITS file
         'cf': 1, # Convolution factor
-        'same_upperlower': False, # whether to use the same upper and lower surface or not
+        'same_upperlower': False, # whether or not to use the same upper and lower surface
+        'slice_image': False, # whether or not to slice the image
         }
 
 source = {
@@ -34,7 +35,7 @@ source = {
 # Initialize the generator
 kmg = KMG(config, source)
 # Gnerate the masks
-kmg.generate_mask(slice_image=False)
+kmg.generate_mask()
 # Save the masks
 kmg.save_mask(save_fits=True, save_npy=True, save_animation=True, vrange=3) # vrange: the velocity range for animation (e.g., -3 km/s to 3 km/s)
 
