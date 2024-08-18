@@ -13,7 +13,7 @@ class generator:
         self.makemask = MakeMask(self.config, self.source, self.loadfits)
         return self.makemask.data, self.makemask.all_masks, self.makemask.u_masks_conv, self.makemask.l_masks_conv
 
-    def save_outputs(self, save_fits, save_npy, save_animation, vrange=3):
+    def save_mask(self, save_fits, save_npy, save_animation, vrange=3):
         masksaver = MaskSaver(self.config, self.source, self.makemask)
         if save_fits:
             if self.slice_image:
