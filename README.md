@@ -1,4 +1,4 @@
-# KeplerianMaskGenerator
+# Keplerian Mask Generator
 
 This tool generates Keplerian masks for data cubes of protoplanetary disks, optionally saves them in FITS or NPY formats, and creates animations of the data with overlaid masks. It is designed to handle FITS files and allows customization of various parameters related to the disk properties.
 
