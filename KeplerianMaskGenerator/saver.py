@@ -31,11 +31,11 @@ class MaskSaver:
             elif self.fitstype == 2:
                 hduw[0].data = self.all_masks.astype(np.float32)
             hduw[0].header['BUNIT'] = ''
-            hduw[0].header['BMAJ'] = cf*self.beam / deg2arcsec
-            hduw[0].header['BMIN'] = cf*self.beam / deg2arcsec
-            hduw[0].header['BPA'] = 0
             del hduw[0].header['HISTORY']
             if 'CASAMBM' in self.header: del hduw[0].header['CASAMBM']
+            if 'BMAJ' in self.header: del hduw[0].header['BMAJ']
+            if 'BMIN' in self.header: del hduw[0].header['BMIN']
+            if 'BPA' in self.header: del hduw[0].header['BPA']
             hduw[0].writeto(savefitsname, overwrite=True)
         print('Done.')
         print(savefitsname+' was saved.')
