@@ -29,15 +29,19 @@ class LoadFits:
                 else:
                     self.fitstype = 1
                     self.data = hdu[0].data[:,0]
-                f_start = header['CRVAL4'] # frequency of the first channel
+                f_ref = header['CRVAL4'] # frequency of the reference channel
+                f_ref_ind = header['CRPIX4'] # index of the reference channel
                 self.df = header['CDELT4'] # channel width
+                f_start = f_ref + (1-f_ref_ind)*self.df # frequency of the start channel
                 nf = header['NAXIS4'] # number of channels
                 self.cw = np.abs(header['CDELT4']*clight/self.restfreq)/km2cm # Channel width in km/s
             elif header['NAXIS'] == 3:
                 self.fitstype = 2
                 self.data = hdu[0].data
-                f_start = header['CRVAL3'] # frequency of the first channel
+                f_ref = header['CRVAL3'] # frequency of the reference channel
+                f_ref_ind = header['CRPIX3'] # index of the reference channel
                 self.df = header['CDELT3'] # channel width
+                f_start = f_ref + (1-f_ref_ind)*self.df # frequency of the start channel
                 nf = header['NAXIS3'] # number of channels
                 self.cw = np.abs(header['CDELT3']*clight/self.restfreq)/km2cm # Channel width in km/s
             self.pix = header['CDELT2'] * deg2arcsec # Pixel size
