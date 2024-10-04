@@ -56,7 +56,7 @@ class LoadFits:
             self.ra = -(indlist - imc) * self.pix
             self.dec = (indlist - imc) * self.pix
             
-            f_list = np.linspace(f_start, f_start+self.df*nf, nf)
+            f_list = np.linspace(f_start, f_start+self.df*(nf-1), nf)
             self.vel_list = clight*(self.restfreq-f_list)/self.restfreq/km2cm
             self.vel_list_vsys = self.vel_list - Vsys
             
