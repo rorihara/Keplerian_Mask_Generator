@@ -54,8 +54,8 @@ class MakeMask:
     def create_binary(self):
         self.u_masks, self.l_masks = [],[]
         for chan in self.vel_list:
-            Vzu_mask = np.abs(chan - self.Vz_u) < (self.cw +  self.dVzu)
-            Vzl_mask = np.abs(chan - self.Vz_l) < (self.cw +  self.dVzl)
+            Vzu_mask = np.abs(chan - self.Vz_u) <= (self.cw + self.dVzu)
+            Vzl_mask = np.abs(chan - self.Vz_l) <= (self.cw + self.dVzl)
             Su_binary, _, _ = np.histogram2d(self.Sux[Vzu_mask].flatten(), self.Suy[Vzu_mask].flatten(), bins=[self.grid_dec*dpc, -self.grid_ra*dpc])
             Su_binary = np.flip(Su_binary > 0, axis=1)
             Sl_binary, _, _ = np.histogram2d(self.Slx[Vzl_mask].flatten(), self.Sly[Vzl_mask].flatten(), bins=[self.grid_dec*dpc, -self.grid_ra*dpc])
