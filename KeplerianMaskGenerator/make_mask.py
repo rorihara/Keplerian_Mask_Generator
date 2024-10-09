@@ -44,20 +44,18 @@ class MakeMask:
         lo, mo, no = self.basis_o
     # Velocity field in the upper surface
         Vkep_u = (G*Ms*Ms2g/((self.R*au2cm)**2+(self.H_u*au2cm)**2)**(3/2))**0.5 * self.R*au2cm /km2cm
-        Vz_u = - vel_sign*Vkep_u*(-np.sin(self.t)*lo[2] + np.cos(self.t)*mo[2]) + Vsys
-        dVzu = linewidth(self.R, self.H_u, L0, p, q)
-        Vzup = Vz_u+dVzu; Vzum = Vz_u-dVzu; self.Vzur = np.dstack((Vzum,Vzup))
+        self.Vz_u = - vel_sign*Vkep_u*(-np.sin(self.t)*lo[2] + np.cos(self.t)*mo[2]) + Vsys
+        self.dVzu = linewidth(self.R, self.H_u, L0, p, q)
     # Velocity field in the lower surface
         Vkep_l = (G*Ms*Ms2g/((self.R*au2cm)**2+(self.H_l*au2cm)**2)**(3/2))**0.5 * self.R*au2cm /km2cm
-        Vz_l = - vel_sign*Vkep_l*(-np.sin(self.t)*lo[2] + np.cos(self.t)*mo[2]) + Vsys
-        dVzl = linewidth(self.R, self.H_l, L0, p, q)
-        Vzlp = Vz_l+dVzl; Vzlm = Vz_l-dVzl; self.Vzlr = np.dstack((Vzlm,Vzlp))
+        self.Vz_l = - vel_sign*Vkep_l*(-np.sin(self.t)*lo[2] + np.cos(self.t)*mo[2]) + Vsys
+        self.dVzl = linewidth(self.R, self.H_l, L0, p, q)
 
     def create_binary(self):
         self.u_masks, self.l_masks = [],[]
         for chan in self.vel_list:
-            Vzu_mask = ((self.Vzur[:,:,0] <= chan-self.cw/2) * (self.Vzur[:,:,1] >= chan-self.cw/2)) + ((self.Vzur[:,:,0] <= chan+self.cw/2) * (self.Vzur[:,:,1] >= chan+self.cw/2))
-            Vzl_mask = ((self.Vzlr[:,:,0] <= chan-self.cw/2) * (self.Vzlr[:,:,1] >= chan-self.cw/2)) + ((self.Vzlr[:,:,0] <= chan+self.cw/2) * (self.Vzlr[:,:,1] >= chan+self.cw/2))     
+            Vzu_mask = np.abs(chan - self.Vz_u) < (self.cw +  self.dVzu)
+            Vzl_mask = np.abs(chan - self.Vz_l) < (self.cw +  self.dVzl)
             Su_binary, _, _ = np.histogram2d(self.Sux[Vzu_mask].flatten(), self.Suy[Vzu_mask].flatten(), bins=[self.grid_dec*dpc, -self.grid_ra*dpc])
             Su_binary = np.flip(Su_binary > 0, axis=1)
             Sl_binary, _, _ = np.histogram2d(self.Slx[Vzl_mask].flatten(), self.Sly[Vzl_mask].flatten(), bins=[self.grid_dec*dpc, -self.grid_ra*dpc])
